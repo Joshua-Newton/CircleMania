@@ -1,0 +1,12 @@
+Known bugs in the game:
+
+1.  Picking up a shotgun pickup while a shotgun pickup is already active will not always properly reset time,
+    instead it will either reduce time by a seemingly random amount or increase it by a similarly random amount,
+    but not higher than the set time constant.
+r
+2.  The above bug also exists for the speed pickup, but to a less severe degree.
+
+3.  When loading a game, bullets are not properly loaded. It appears that the bullets vector is cleared directly after
+    loading them into the game. Investigate further.
+
+4.  Player moves faster diagonally. NOTE: can fix this in graphicsTimers.h where movement is handled

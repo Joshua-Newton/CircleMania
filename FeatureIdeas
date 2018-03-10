@@ -1,0 +1,25 @@
+Ideas for future game features:
+
+1. Whenever you hit an enemy, use a hollow circle to pulse around its position, showing a hit
+
+2. New Pickups:
+    a. Bullet Speed
+    b. Laser shot (shoot a rectangle/circle that instantly destroys enemies, one shot)
+    c. Penetration shot (goes through enemies, only hurts them once, short time or limited shots based)
+    d. Fortune (Guaranteed next X enemies will drop a pickup)
+
+3. Difficulty Settings
+    a. Easy
+    b. Normal
+    c. Hard
+    d. Legendary
+    e. Custom (Lots of file I/O, this would require allowing the user to type into the program and check their input)
+       Allow these to be edited:
+        I. Sizes
+        II. Speeds
+        III. Healths
+        IV. Starting Ammo
+        V. Drop rates
+        VI. Which pickups are available
+
+4.
