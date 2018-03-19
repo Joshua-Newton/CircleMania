@@ -55,6 +55,7 @@ color RESUME_BUTTON_COLOR = {1,0,0};
 color RESTART_GAME_BUTTON_COLOR = {1,0,0};
 color LOAD_BUTTON_COLOR = {1,0,0};
 color EXIT_BUTTON_COLOR = {1,0,0};
+color SETTINGS_BUTTON_COLOR = {1,0,0};
 color BACKGROUND_COLOR = {0,0,0};
 color SPEED_UP_COLOR = {0.5,.75,0.25};
 color AMMO_COLOR = {0.25,0.5,0.75};
@@ -126,7 +127,7 @@ bool shooting;
 int FIRE_RATE = 175;
 
 // enum to keep track of which screen the game is on
-enum screenType {start, game, endGame, pauseGame};
+enum screenType {start, game, endGame, pauseGame, settings};
 
 // variable to keep track of which screen the player is on
 screenType screen;
@@ -140,6 +141,7 @@ Rectangle_Shape saveButton;
 Rectangle_Shape exitButton;
 Rectangle_Shape exitButtonPause;
 Rectangle_Shape restartGameButton;
+Rectangle_Shape settingsButton;
 
 // Mouse global position variables
 int MOUSE_X = 0;

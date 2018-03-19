@@ -14,6 +14,11 @@ void displayControls();
 
 void displayHUD();
 
+// display settings screen
+void displaySettings() {
+
+}
+
 // display pause screen
 void displayPause() {
     // Draw buttons and text
@@ -112,6 +117,7 @@ void displayStart() {
     startButton.draw();
     loadButton.draw();
     exitButton.draw();
+    settingsButton.draw();
     displayTitle();
     displayControls();
 
@@ -140,6 +146,12 @@ void displayStart() {
     glRasterPos2i(exitButton.get_x() + 25, exitButton.get_y() + 45);
     for (int i = 0; i < exitMessage.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, exitMessage[i]);
+    }
+
+    string settingsMessage = "Settings Menu";
+    glRasterPos2i(settingsButton.get_x() + 25, settingsButton.get_y() + 45);
+    for (int i = 0; i < settingsMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, settingsMessage[i]);
     }
 
 
@@ -451,6 +463,9 @@ void display() {
             break;
         case pauseGame:
             displayPause();
+            break;
+        case settings:
+            displaySettings();
             break;
 
     }
