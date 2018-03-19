@@ -22,7 +22,7 @@ int MEDIUM_SPEED = 6;
 int FAST_SPEED = 9;
 int PLAYER_SPEED = 6;
 int BULLET_SPEED = (FAST_SPEED + 1);
-int NUKE_EXPANSION_RATE = 1; // increase in both radii each screen refresh
+int NUKE_EXPANSION_RATE = 2; // increase in both radii each screen refresh
 
 // Radius constants
 int PLAYER_RADIUS = 10;
@@ -31,8 +31,8 @@ int MEDIUM_RADIUS = 30;
 int FAST_RADIUS = 20;
 int BULLET_RADIUS = 5;
 int PICKUP_RADIUS = 8;
-int NUKE_INNER_RADIUS_INITIAL = 5*PLAYER_RADIUS;
-int NUKE_OUTER_RADIUS_INITIAL = 10*PLAYER_RADIUS;
+int NUKE_INNER_RADIUS_INITIAL = 1*PLAYER_RADIUS;
+int NUKE_OUTER_RADIUS_INITIAL = 3*NUKE_INNER_RADIUS_INITIAL;
 // Spawn rate (in milliseconds)
 int ENEMY_SPAWNRATE = 1;
 
@@ -56,12 +56,14 @@ color RESTART_GAME_BUTTON_COLOR = {1,0,0}; // Red
 color LOAD_BUTTON_COLOR = {1,0,0}; // Red
 color EXIT_BUTTON_COLOR = {1,0,0}; // Red
 color SETTINGS_BUTTON_COLOR = {1,0,0}; // Red
+color MAIN_MENU_BUTTON_COLOR = {1,0,0}; // Red
 color BACKGROUND_COLOR = {0,0,0}; // Black
 color SPEED_UP_COLOR = {0.5,.75,0.25};
 color AMMO_COLOR = {0.25,0.5,0.75};
 color HEALTH_COLOR = {0.25,0.25,0.75};
 color SHOTGUN_COLOR = {0.75,0.5,0.5};
 color NUKE_COLOR = {0.3, 0.5, 0.7};
+color NUKE_CIRCLE_COLOR = {0.1, 0.5, 0.7};
 
 // Bullet damage constant
 int BULLET_DAMAGE = 1;
@@ -102,7 +104,7 @@ Circle HEALTH_CIRCLE(PICKUP_RADIUS,HEALTH_COLOR);
 Circle SHOTGUN_CIRCLE(PICKUP_RADIUS,SHOTGUN_COLOR);
 Circle NUKE_CIRCLE(PICKUP_RADIUS, NUKE_COLOR);
 // Hollow Circle constant
-HollowCircle NUKE_HOLLOW_CIRCLE(NUKE_INNER_RADIUS_INITIAL, NUKE_OUTER_RADIUS_INITIAL, NUKE_COLOR,0,0);
+HollowCircle NUKE_HOLLOW_CIRCLE(NUKE_INNER_RADIUS_INITIAL, NUKE_OUTER_RADIUS_INITIAL, NUKE_CIRCLE_COLOR,0,0);
 
 // Save File constant
 string SAVE_FILE = "SavedFile.txt";
@@ -142,6 +144,7 @@ Rectangle_Shape exitButton;
 Rectangle_Shape exitButtonPause;
 Rectangle_Shape restartGameButton;
 Rectangle_Shape settingsButton;
+Rectangle_Shape mainMenuButton;
 
 // Mouse global position variables
 int MOUSE_X = 0;
@@ -157,8 +160,6 @@ int HEIGHT = 800;
 int BUTTON_WIDTH = 200;
 int BUTTON_HEIGHT = 75;
 int BUTTON_X_POSITION =  (WIDTH/2) - (BUTTON_WIDTH/2);
-
-
 
 /** HARD CODE BELOW FOR TESTING **/
 //HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);

@@ -16,6 +16,17 @@ void displayHUD();
 
 // display settings screen
 void displaySettings() {
+    // Draw Buttons and text
+    mainMenuButton.draw();
+
+    string mainMenuMessage = "Main Menu";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(mainMenuButton.get_x() + 25, mainMenuButton.get_y() + 45);
+    for (int i = 0; i < mainMenuMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mainMenuMessage[i]);
+    }
+
+    //TODO: display file I/O options for custom difficulty
 
 }
 

@@ -200,6 +200,23 @@ void cursor(int x, int y) {
         else {
             exitButtonPause.set_fill(EXIT_BUTTON_COLOR);
         }
+
+        // Settings button hover
+        if (settingsButton.is_overlapping(x, y)) {
+            settingsButton.set_fill(HOVER_COLOR);
+        }
+        else {
+            settingsButton.set_fill(EXIT_BUTTON_COLOR);
+        }
+
+        // Main Menu button hover
+        if (mainMenuButton.is_overlapping(x, y)) {
+            mainMenuButton.set_fill(HOVER_COLOR);
+        }
+        else {
+            mainMenuButton.set_fill(EXIT_BUTTON_COLOR);
+        }
+
     }
 
 
@@ -234,10 +251,11 @@ void mouse(int button, int state, int x, int y) {
                 loading(player, enemies, bulletsVector, pickups, SAVE_FILE);
                 screen = game;
             }
-        }
-        else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && exitButton.is_overlapping(x, y)) {
+        } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && exitButton.is_overlapping(x, y)) {
             glutDestroyWindow(wd);
             exit(0);
+        } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && settingsButton.is_overlapping(x, y)) {
+            screen = settings;
         }
     }
 
@@ -273,6 +291,15 @@ void mouse(int button, int state, int x, int y) {
         }
     }
 
+    if (screen == settings){
+         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
+             screen = start;
+         }
+
+        //TODO: FILE I/O FOR CUSTOM DIFFICULTY
+
+
+    }
 
     if (screen == endGame) {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {

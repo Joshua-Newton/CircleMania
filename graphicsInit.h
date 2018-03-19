@@ -60,6 +60,10 @@ void init() {
     settingsButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
     settingsButton.set_fill(SETTINGS_BUTTON_COLOR);
     settingsButton.set_position(BUTTON_X_POSITION, 600);
+
+    mainMenuButton.set_dimensions(BUTTON_WIDTH,BUTTON_HEIGHT);
+    mainMenuButton.set_fill(MAIN_MENU_BUTTON_COLOR);
+    mainMenuButton.set_position(25,25);
 /**  NOTE: ANY CHANGES IN init HERE MUST BE REPLICATED IN graphics.cpp  */
 }
 
