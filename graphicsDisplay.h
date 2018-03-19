@@ -294,17 +294,17 @@ void displayGame() {
 
       //  if (!(nukes[circle].is_overlapping(startBackground))) { // This is the more proper way to do the if statement
 
-//
-//        if (WIDTH > HEIGHT){
-//            if (nukes[circle].getRadiusInner() > WIDTH){
-//                nukes.erase(nukes.begin() + circle);
-//            }
-//        }
-//        else {
-//            if (nukes[circle].getRadiusInner() > HEIGHT){
-//                nukes.erase(nukes.begin() + circle);
-//            }
-//        }
+
+        if (WIDTH > HEIGHT){
+            if (nukes[circle].getRadiusInner() > WIDTH){
+                nukes.erase(nukes.begin() + circle);
+            }
+        }
+        else {
+            if (nukes[circle].getRadiusInner() > HEIGHT){
+                nukes.erase(nukes.begin() + circle);
+            }
+        }
     }
 
     // for every nuke, Check for overlap with enemies

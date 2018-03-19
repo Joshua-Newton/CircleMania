@@ -43,20 +43,20 @@ int MEDIUM_HEALTH = 5;
 int FAST_HEALTH = 2;
 
 // Color Constants
-color PLAYER_COLOR = {0,0,1};
-color SLOW_COLOR = {1,0,0};
-color MEDIUM_COLOR = {0,1,1};
-color FAST_COLOR = {1,0,1};
-color BULLET_COLOR = {1,1,1};
-color HOVER_COLOR = {0,1,0};
-color START_BUTTON_COLOR = {1,0,0};
-color SAVE_BUTTON_COLOR = {1,0,0};
-color RESUME_BUTTON_COLOR = {1,0,0};
-color RESTART_GAME_BUTTON_COLOR = {1,0,0};
-color LOAD_BUTTON_COLOR = {1,0,0};
-color EXIT_BUTTON_COLOR = {1,0,0};
-color SETTINGS_BUTTON_COLOR = {1,0,0};
-color BACKGROUND_COLOR = {0,0,0};
+color PLAYER_COLOR = {0,0,1}; // Blue
+color SLOW_COLOR = {1,0,0}; // Red
+color MEDIUM_COLOR = {0,1,1}; // Light Blue
+color FAST_COLOR = {1,0,1}; // Pink
+color BULLET_COLOR = {1,1,1}; // White
+color HOVER_COLOR = {0,1,0}; // Green
+color START_BUTTON_COLOR = {1,0,0}; // Red
+color SAVE_BUTTON_COLOR = {1,0,0}; // Red
+color RESUME_BUTTON_COLOR = {1,0,0}; // Red
+color RESTART_GAME_BUTTON_COLOR = {1,0,0}; // Red
+color LOAD_BUTTON_COLOR = {1,0,0}; // Red
+color EXIT_BUTTON_COLOR = {1,0,0}; // Red
+color SETTINGS_BUTTON_COLOR = {1,0,0}; // Red
+color BACKGROUND_COLOR = {0,0,0}; // Black
 color SPEED_UP_COLOR = {0.5,.75,0.25};
 color AMMO_COLOR = {0.25,0.5,0.75};
 color HEALTH_COLOR = {0.25,0.25,0.75};
@@ -66,7 +66,7 @@ color NUKE_COLOR = {0.3, 0.5, 0.7};
 // Bullet damage constant
 int BULLET_DAMAGE = 1;
 
-// Players number of special Attacks
+// Player's initial number of special Attacks
 int PLAYER_SPECIALS = 10;
 
 // Pickup Constants
@@ -161,7 +161,7 @@ int BUTTON_X_POSITION =  (WIDTH/2) - (BUTTON_WIDTH/2);
 
 
 /** HARD CODE BELOW FOR TESTING **/
-HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);
+//HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);
 
 /** HARD CODE ABOVE FOR TESTING **/
 
