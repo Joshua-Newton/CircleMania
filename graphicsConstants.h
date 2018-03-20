@@ -22,7 +22,7 @@ int MEDIUM_SPEED = 6;
 int FAST_SPEED = 9;
 int PLAYER_SPEED = 6;
 int BULLET_SPEED = (FAST_SPEED + 1);
-int NUKE_EXPANSION_RATE = 2; // increase in both radii each screen refresh
+int NUKE_EXPANSION_RATE = 8; // increase in both radii each screen refresh
 
 // Radius constants
 int PLAYER_RADIUS = 10;
@@ -34,10 +34,10 @@ int PICKUP_RADIUS = 8;
 int NUKE_INNER_RADIUS_INITIAL = 1*PLAYER_RADIUS;
 int NUKE_OUTER_RADIUS_INITIAL = 3*NUKE_INNER_RADIUS_INITIAL;
 // Spawn rate (in milliseconds)
-int ENEMY_SPAWNRATE = 1;
+int ENEMY_SPAWNRATE = 1000;
 
 // Health Constants
-int PLAYER_HEALTH = 99999;
+int PLAYER_HEALTH = 3;
 int SLOW_HEALTH = 7;
 int MEDIUM_HEALTH = 5;
 int FAST_HEALTH = 2;
@@ -76,10 +76,10 @@ int NUMBER_PICKUPS_IMPLEMENTED = 5; // The number of pickups that have been impl
 int DROP_RATE = 100; // Percentage
 int PICKUP_LIFETIME = 20; // Seconds
 int SPEED_BUFF = 2; // Pixels per frame
-int SPEED_BUFF_TIME = 30; // Seconds
+int SPEED_BUFF_TIME = 15; // Seconds
 int AMMO_REGAINED = 2;
 int HEALTH_REGAINED = 1;
-int SHOTGUN_TIME = 15; // Seconds
+int SHOTGUN_TIME = 5; // Seconds
 
 // Pickup string constants
 string SPEED_STRING = "SPEED";

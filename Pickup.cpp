@@ -315,8 +315,14 @@ void Shotgun::setTimeLength(int newTimeLength) {
 
 // Methods
 void Shotgun::pickup(Player &player) {
-    player.setShotgunBool(true);
-    player.setShotgunTime(lifeTime);
+    if (player.getShotgunBool()){
+        player.setShotgunTime(lifeTime);
+    }
+    else {
+        player.setShotgunBool(true);
+        player.setShotgunTime(lifeTime);
+    }
+
 }
 
 void Shotgun::save(ofstream &outs){
