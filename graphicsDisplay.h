@@ -41,6 +41,14 @@ void displayPause() {
     exitButtonPause.draw();
     displayTitle();
     displayControls();
+    mainMenuButton.draw();
+
+    string mainMenuMessage = "Main Menu";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(mainMenuButton.get_x() + 25, mainMenuButton.get_y() + 45);
+    for (int i = 0; i < mainMenuMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mainMenuMessage[i]);
+    }
 
     string menuMessage = "PAUSED";
     glColor3f(1, 1, 1);
@@ -91,6 +99,14 @@ void displayEnd() {
     loadButton.draw();
     exitButton.draw();
     displayTitle();
+    mainMenuButton.draw();
+
+    string mainMenuMessage = "Main Menu";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(mainMenuButton.get_x() + 25, mainMenuButton.get_y() + 45);
+    for (int i = 0; i < mainMenuMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mainMenuMessage[i]);
+    }
 
     string menuMessage = "GAME OVER";
     glColor3f(1, 1, 1);
@@ -118,6 +134,8 @@ void displayEnd() {
     for (int i = 0; i < exitMessage.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, exitMessage[i]);
     }
+
+
 }
 
 // Draw the start menu

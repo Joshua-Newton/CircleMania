@@ -57,7 +57,7 @@ void kbd(unsigned char key, int x, int y)
     }
 
     switch (key) {
-        // Pause the game = P or space
+        // Pause the game = 'P' , 'p', or space
         case (32):
             if (screen == game) {
                 screen = pauseGame;
@@ -120,6 +120,7 @@ void kbd(unsigned char key, int x, int y)
 
 void kbdS(int key, int x, int y) {
 
+    // Arrow keys cause the player to shoot while in the game
     if(screen == game) {
         switch (key) {
             case GLUT_KEY_DOWN:
@@ -144,6 +145,7 @@ void kbdS(int key, int x, int y) {
 
 void cursor(int x, int y) {
 
+    // Handles hovering events outside of the game
     if (screen != game){
         // start button hover
         if (startButton.is_overlapping(x, y)){
@@ -224,6 +226,7 @@ void cursor(int x, int y) {
     glutPostRedisplay();
 }
 
+// Occurs when the mouse is dragged (click held while mouse moves)
 void drag(int x,int y){
     if (screen == game){
         MOUSE_X = x;
@@ -235,14 +238,26 @@ void drag(int x,int y){
 // state will be GLUT_UP or GLUT_DOWN
 void mouse(int button, int state, int x, int y) {
 
+    /** Interactions on start screen **/
     if (screen == start) {
         //if start game button (rectangle) is clicked, start the game
-
-
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {
+            player.setPosition(width / 2, height / 2);
+            player.setHealth(PLAYER_HEALTH);
+            player.setScore(0);
+            player.setSpecialAttacks(PLAYER_SPECIALS);
+            player.setBoostBool(false);
+            player.setBoostTime(0);
+            player.setShotgunBool(false);
+            player.setShotgunTime(0);
+
+            enemies.clear();
+            bulletsVector.clear();
+            pickups.clear();
+            nukes.clear();
             screen = game;
         }
-            //if the load game button (rectangle) is clicked, load the game
+        //if the load game button (rectangle) is clicked, load the game
         else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && loadButton.is_overlapping(x, y)) {
             ifstream saveFile(SAVE_FILE);
             if (saveFile) {
@@ -251,15 +266,19 @@ void mouse(int button, int state, int x, int y) {
                 loading(player, enemies, bulletsVector, pickups, SAVE_FILE);
                 screen = game;
             }
-        } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && exitButton.is_overlapping(x, y)) {
+        }
+        // if the exit button is clicked, exit the game, destroying the window
+        else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && exitButton.is_overlapping(x, y)) {
             glutDestroyWindow(wd);
             exit(0);
-        } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && settingsButton.is_overlapping(x, y)) {
+        }
+        // If the settings button is clicked, move to the settings screen
+        else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && settingsButton.is_overlapping(x, y)) {
             screen = settings;
         }
     }
 
-
+    /** Interactions on pause screen **/
     if (screen == pauseGame) {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && resumeButton.is_overlapping(x, y)) {
             screen = game;
@@ -289,8 +308,12 @@ void mouse(int button, int state, int x, int y) {
             pickups.clear();
             screen = game;
         }
+        else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
+            screen = start;
+        }
     }
 
+    /** Interactions on settings screen **/
     if (screen == settings){
          if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
              screen = start;
@@ -301,6 +324,7 @@ void mouse(int button, int state, int x, int y) {
 
     }
 
+    /** Interactions on game over screen **/
     if (screen == endGame) {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {
             player.setPosition(width / 2, height / 2);
@@ -315,6 +339,7 @@ void mouse(int button, int state, int x, int y) {
             enemies.clear();
             bulletsVector.clear();
             pickups.clear();
+            nukes.clear();
             screen = game;
         }
             // Load game
@@ -329,8 +354,25 @@ void mouse(int button, int state, int x, int y) {
             glutDestroyWindow(wd);
             exit(0);
         }
+        else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)){
+            player.setPosition(width / 2, height / 2);
+            player.setHealth(PLAYER_HEALTH);
+            player.setScore(0);
+            player.setSpecialAttacks(PLAYER_SPECIALS);
+            player.setBoostBool(false);
+            player.setBoostTime(0);
+            player.setShotgunBool(false);
+            player.setShotgunTime(0);
+
+            enemies.clear();
+            bulletsVector.clear();
+            pickups.clear();
+            nukes.clear();
+            screen = start;
+        }
     }
 
+    /** Interactions on game screen **/
     if (screen == game) {
         // if the left mouse key is pressed, the player is shooting
         if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN) {
