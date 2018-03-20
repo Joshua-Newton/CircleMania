@@ -258,10 +258,11 @@ void displayGame() {
     // Check for all bullets colliding with any enemy
     for (int bullet = 0; bullet < bulletsVector.size(); ++bullet) {
         for (int enemy = 0; enemy < enemies.size(); ++enemy) {
-            // If a bullet collides with any enemy, damage the enemy and delete the bullet
+            // If a bullet collides with any enemy, damage the enemy, delete the bullet, and set hit to true.
             if (bulletsVector[bullet].getCircle().is_overlapping(enemies[enemy]->getCircle())) {
                 enemies[enemy]->setHealth(enemies[enemy]->getHealth() - bulletsVector[bullet].getDamage());
                 bulletsVector.erase(bulletsVector.begin() + bullet);
+                enemies[enemy]->setHit(true);
                 // If this enemy's health is 0 or less, determine if a drop spawns, then delete the enemy
                 if (enemies[enemy]->getHealth() <= 0) {
                     // Use random number to determine if a drop spawns
@@ -348,10 +349,13 @@ void displayGame() {
 
     // for every enemy, do stuff
     for (int enemy = 0; enemy < enemies.size(); ++enemy){
-//        if (hollow.is_overlapping(enemies[enemy]->getCircle())){
-//            player.changeScore(enemies[enemy]->getScore());
-//            enemies.erase(enemies.begin() + enemy);
-//        }
+        // update each enemies' hit circle position
+        enemies[enemy]->getHitCircle().set_position(enemies[enemy]->getX(), enemies[enemy]->getY());
+        // if the enemy was hit, draw its hit circle
+        if (enemies[enemy]->getHit()){
+            enemies[enemy]->drawHitCircle();
+        }
+
     }
 
     // Print out Heads Up Display
