@@ -18,6 +18,8 @@
 #include <GL/glut.h>
 #endif
 
+#include "Enemy.h"
+
 // Program initialization NOT OpenGL/GLUT dependent,
 // as we haven't created a GLUT window yet
 void init(void);
@@ -47,6 +49,7 @@ void timer(int extra);
 void enemySpawnTimer(int extra);
 void pickupHandlerTimer(int extra);
 void fireRateTimer(int extra);
+void hitTimer(int extra);
 
 // Handle mouse button pressed and released events
 void mouse(int button, int state, int x, int y);

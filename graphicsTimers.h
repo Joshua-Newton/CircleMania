@@ -221,5 +221,16 @@ void fireRateTimer(int extra){
     glutTimerFunc(FIRE_RATE, fireRateTimer, 0);
 }
 
+void hitTimer(int extra){
+    for (int enemy; enemy < enemies.size(); enemy++){
+        if (enemies[enemy]->getHit()){
+            enemies[enemy]->setHit(false);
+        }
+    }
+
+    glutPostRedisplay();
+    // This timer should occur every (100 milliseconds)
+    glutTimerFunc(100, hitTimer, 0);
+}
 
 #endif //CIRCLE_MANIA_GRAPHICSTIMERS_H
