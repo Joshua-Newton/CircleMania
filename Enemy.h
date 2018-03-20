@@ -74,7 +74,7 @@ public:
     color getFill() const;
     int getRadius() const;
     bool getHit() const;
-    HollowCircle getHitCircle() const;
+    HollowCircle &getHitCircle() ;
 
     /*
      * Setters

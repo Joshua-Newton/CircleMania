@@ -102,7 +102,7 @@ int Enemy::getRadius() const{
 bool Enemy::getHit() const{
     return hit;
 }
-HollowCircle Enemy::getHitCircle() const{
+HollowCircle& Enemy::getHitCircle() {
     return hitCircle;
 }
 /*
