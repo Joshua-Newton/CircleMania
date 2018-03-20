@@ -20,3 +20,6 @@ Known bugs in the game:
 
 7.  When loading a game, sometimes bullets that do load do not act properly. Once observed them move slowly to the right.
     Another time, observed no movement at all.
+
+8.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
+    as you move the mouse

@@ -25,6 +25,16 @@ Enemy::Enemy(int hlth, int spd, int scr, Circle cir){
     setCircle(cir);
 }
 
+Enemy::Enemy(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir){
+    setHealth(hlth);
+    setSpeed(spd);
+    setScore(scr);
+    setCircle(cir);
+    setHitCircle(hitCir);
+    setHit(false);
+}
+
+
 Enemy::Enemy(int hlth, int scr, Circle cir){
     setHealth(hlth);
     setSpeed(getSpeedConstant());
@@ -165,6 +175,17 @@ Slow::Slow(int hlth, int spd, int scr, Circle cir){
     setCircle(cir);
 }
 
+
+Slow::Slow(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir){
+    setHealth(hlth);
+    setSpeed(spd);
+    setScore(scr);
+    setCircle(cir);
+    setHitCircle(hitCir);
+    setHit(false);
+}
+
+
 Slow::Slow(int hlth, int scr, Circle cir){
     setHealth(hlth);
     setSpeed(getSpeedConstant());
@@ -216,6 +237,15 @@ Medium::Medium(int hlth, int spd, int scr, Circle cir){
     setCircle(cir);
 }
 
+Medium::Medium(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir){
+    setHealth(hlth);
+    setSpeed(spd);
+    setScore(scr);
+    setCircle(cir);
+    setHitCircle(hitCir);
+    setHit(false);
+}
+
 Medium::Medium(int hlth, int scr, Circle cir){
     setHealth(hlth);
     setSpeed(getSpeedConstant());
@@ -257,6 +287,15 @@ Fast::Fast(int hlth, int spd, int scr, Circle cir){
     setSpeed(spd);
     setScore(scr);
     setCircle(cir);
+}
+
+Fast::Fast(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir){
+    setHealth(hlth);
+    setSpeed(spd);
+    setScore(scr);
+    setCircle(cir);
+    setHitCircle(hitCir);
+    setHit(false);
 }
 
 Fast::Fast(int hlth, int scr, Circle cir){

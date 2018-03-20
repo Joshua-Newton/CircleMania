@@ -95,7 +95,7 @@ void enemySpawnTimer(int extra) {
                     enemyCircle = SLOW_CIRCLE;
                     enemyCircle.set_position(-distance, position);
                 }
-                enemies.push_back(make_unique<Slow>(Slow(SLOW_HEALTH, SLOW_SPEED, SLOW_SCORE, enemyCircle)));
+                enemies.push_back(make_unique<Slow>(Slow(SLOW_HEALTH, SLOW_SPEED, SLOW_SCORE, enemyCircle, SLOW_HIT_CIRCLE)));
 
                 break;
             case 1:
@@ -117,7 +117,7 @@ void enemySpawnTimer(int extra) {
                     enemyCircle = MEDIUM_CIRCLE;
                     enemyCircle.set_position(-distance, position);
                 }
-                enemies.push_back(make_unique<Medium>(Medium(MEDIUM_HEALTH, MEDIUM_SPEED, MEDIUM_SCORE, enemyCircle)));
+                enemies.push_back(make_unique<Medium>(Medium(MEDIUM_HEALTH, MEDIUM_SPEED, MEDIUM_SCORE, enemyCircle, MEDIUM_HIT_CIRCLE)));
                 break;
             case 2:
                 distance = rand() % 50 + FAST_RADIUS;
@@ -138,7 +138,7 @@ void enemySpawnTimer(int extra) {
                     enemyCircle = FAST_CIRCLE;
                     enemyCircle.set_position(-distance, position);
                 }
-                enemies.push_back(make_unique<Fast>(Fast(FAST_HEALTH, FAST_SPEED, FAST_SCORE, enemyCircle)));
+                enemies.push_back(make_unique<Fast>(Fast(FAST_HEALTH, FAST_SPEED, FAST_SCORE, enemyCircle, FAST_HIT_CIRCLE)));
                 break;
         }
     }

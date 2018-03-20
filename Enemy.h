@@ -37,6 +37,13 @@ public:
     Enemy(int hlth, int spd, int scr, Circle cir);
 
     /**
+     * Requires: int health, int speed, int score, circle, hollow circle
+     * Modifies: health, speed, score, circle, hitCircle
+     * Effects:  Creates a new enemy with the given parameters
+     */
+    Enemy(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir);
+
+    /**
      * R: health, score, circle
      * M: health, score, circle, speed
      * E: Creates an enemy with given parameters and default speed.
@@ -118,6 +125,7 @@ public:
      */
     Slow(int hlth, int spd, int scr, Circle cir);
 
+    Slow(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir);
 
     Slow(int hlth, int scr, Circle cir);
 
@@ -149,6 +157,8 @@ public:
      * Effects: Creates an enemy with the given field values
      */
     Medium(int hlth, int spd, int scr, Circle cir);
+
+    Medium(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir);
 
     /*
      * Requires: health, score, circle
@@ -186,12 +196,16 @@ public:
      */
     Fast(int hlth, int spd, int scr, Circle cir);
 
+
+    Fast(int hlth, int spd, int scr, Circle cir, HollowCircle hitCir);
+
     /*
      * Requires: health, score, circle
      * Modifies: health, speed, score, circle
      * Effects: Creates an enemy with the given field values and default speed
      */
     Fast(int hlth, int scr, Circle cir);
+
 
     /*
      * Overwrites parent class
