@@ -14,3 +14,6 @@ Known bugs in the game:
 5.  When first shooting, the target position (The current mouse position) sometimes does not register correctly. This
     is fixed after moving the mouse, but returns if the mouse button is released, moved to another position, then clicked
     without moving the mouse.
+
+6.  When loading a game, pickups are not loaded. It appears that the pickup vector is never cleared, and the loading function
+    does not change the vector at all.
