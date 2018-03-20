@@ -12,8 +12,6 @@ void init() {
     height = HEIGHT;
     player.setPosition(width/2,height/2);
 
-    // Constant that requires width to be set
-
 /** HARD CODE BELOW FOR TESTING **/
 
 /** HARD CODE ABOVE FOR TESTING **/

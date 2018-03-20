@@ -19,6 +19,10 @@ protected:
     Circle circle;
     //The enemy's default speed
     int SPEED_CONSTANT;
+    //Boolean that shows if the enemy was recently hit
+    bool hit;
+    //The hollow circle that will be drawn if the enemy is hit
+    HollowCircle hitCircle;
 public:
     /*
      * Default constructor
@@ -45,6 +49,7 @@ public:
     ~Enemy();
 
     void draw();
+    void drawHitCircle();
 
     /*
      * Getters
@@ -61,6 +66,8 @@ public:
     double getBlue() const;
     color getFill() const;
     int getRadius() const;
+    bool getHit() const;
+    HollowCircle getHitCircle() const;
 
     /*
      * Setters
@@ -70,6 +77,8 @@ public:
     void setScore(int sc);
     void setCircle(Circle cir);
     void setPosition(int x, int y);
+    void setHit(bool newHitTruth);
+    void setHitCircle(HollowCircle newHitCircle);
 
     /*
      * Overwritten in child class

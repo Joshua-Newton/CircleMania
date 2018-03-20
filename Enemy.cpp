@@ -42,6 +42,9 @@ Enemy::~Enemy(){
 void Enemy::draw(){
     circle.draw();
 }
+void Enemy::drawHitCircle() {
+    hitCircle.draw();
+}
 
 
 /*
@@ -86,6 +89,12 @@ color Enemy::getFill() const{
 int Enemy::getRadius() const{
     return circle.get_radius();
 }
+bool Enemy::getHit() const{
+    return hit;
+}
+HollowCircle Enemy::getHitCircle() const{
+    return hitCircle;
+}
 /*
  * Setters
  */
@@ -107,6 +116,12 @@ void Enemy::setCircle(Circle cir){
 
 void Enemy::setPosition(int x, int y){
     circle.set_position(x,y);
+}
+void Enemy::setHit(bool newHitTruth){
+    hit = newHitTruth;
+}
+void Enemy::setHitCircle(HollowCircle newHitCircle) {
+    hitCircle = newHitCircle;
 }
 
 
