@@ -129,6 +129,8 @@ int graphicsPlay(int argc, char** argv) {
 
     glutTimerFunc(0, fireRateTimer, 0);
 
+    glutTimerFunc(0, hitTimer, 0);
+
     // Enter the event-processing loop
     glutMainLoop();
     return 0;

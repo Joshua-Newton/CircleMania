@@ -7,7 +7,6 @@
 
 #include "graphicsConstants.h"
 #include "Enemy.h"
-//#include "graphicsPlay.h"
 
 // Timer to take care of movement
 void timer(int extra) {
@@ -50,11 +49,7 @@ void timer(int extra) {
             player.move(player.getSpeed(), 0);
         }
 
-
-
     }
-
-
 
     glutPostRedisplay();
     glutTimerFunc(0, timer, 0);
@@ -146,7 +141,6 @@ void enemySpawnTimer(int extra) {
     glutPostRedisplay();
     glutTimerFunc(ENEMY_SPAWNRATE, enemySpawnTimer, 0);
 
-
 }
 
 // Timer that triggers every second, handles time based events that occur every second
@@ -216,13 +210,19 @@ void fireRateTimer(int extra){
         }
     }
 
+//    for (int enemy = 0; enemy < enemies.size(); enemy++){
+//        if (enemies[enemy]->getHit()){
+//            enemies[enemy]->setHit(false);
+//        }
+//    }
+
     glutPostRedisplay();
     // This timer should occur every FIRE_RATE milliseconds
     glutTimerFunc(FIRE_RATE, fireRateTimer, 0);
 }
 
 void hitTimer(int extra){
-    for (int enemy; enemy < enemies.size(); enemy++){
+    for (int enemy = 0; enemy < enemies.size(); enemy++){
         if (enemies[enemy]->getHit()){
             enemies[enemy]->setHit(false);
         }

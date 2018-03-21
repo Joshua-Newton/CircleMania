@@ -189,6 +189,8 @@ void displayStart() {
 // Draw the game
 void displayGame() {
 
+
+
     // Drawing Order: Background, Nukes, Enemies, Bullets, player, pickups, HUD
     startBackground.draw();
 
