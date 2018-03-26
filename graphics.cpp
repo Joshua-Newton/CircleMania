@@ -70,7 +70,6 @@ void init() {
     slowSizeDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     slowSizeDisplay.set_position(playerSizeDisplay.get_x(),playerSizeDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
 
-    //TODO: set the positions correctly
     mediumSizeDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
     mediumSizeDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     mediumSizeDisplay.set_position(slowSizeDisplay.get_x(),slowSizeDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);

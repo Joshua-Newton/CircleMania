@@ -676,6 +676,7 @@ void mouse(int button, int state, int x, int y) {
         }
         else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
             screen = start;
+
         }
     }
 
@@ -683,6 +684,15 @@ void mouse(int button, int state, int x, int y) {
     if (screen == settings){
          if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
              screen = start;
+             // Apply settings that are necessary
+             SLOW_CIRCLE.set_radius(SLOW_RADIUS);
+             MEDIUM_CIRCLE.set_radius(MEDIUM_RADIUS);
+             FAST_CIRCLE.set_radius(FAST_RADIUS);
+             NUKE_CIRCLE.set_radius(PICKUP_RADIUS);
+             AMMO_CIRCLE.set_radius(PICKUP_RADIUS);
+             SPEED_UP_CIRCLE.set_radius(PICKUP_RADIUS);
+             SHOTGUN_CIRCLE.set_radius(PICKUP_RADIUS);
+             HEALTH_CIRCLE.set_radius(PICKUP_RADIUS);
          }
 
         //TODO: FILE I/O FOR CUSTOM DIFFICULTY
