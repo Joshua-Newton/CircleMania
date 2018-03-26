@@ -121,6 +121,7 @@ public:
     void setBoostTime(int newTime);
     void setShotgunBool(bool newTruth);
     void setBoostBool(bool newTruth);
+    void setRadius(int newRadius);
 
 
 };

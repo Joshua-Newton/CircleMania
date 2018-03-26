@@ -185,3 +185,7 @@ void Player::setShotgunBool(bool newTruth){
 void Player::setBoostBool(bool newTruth){
     boost = newTruth;
 }
+void Player::setRadius(int newRadius){
+    circle.set_radius(newRadius);
+}
+

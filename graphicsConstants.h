@@ -191,6 +191,26 @@ int SETTING_DISPLAY_WIDTH = 50;
 int SETTING_DISPLAY_HEIGHT = 20;
 int SETTING_DISPLAY_MARGIN = 5;
 
+// Variables for Max values for settings
+int PLAYER_RADIUS_MAX = 200;
+int SLOW_RADIUS_MAX = 200;
+int MEDIUM_RADIUS_MAX = 200;
+int FAST_RADIUS_MAX = 200;
+int PICKUP_RADIUS_MAX = 200;
+int SPEED_MAX = 100;
+int HEALTH_MAX = 100;
+int AMMO_MAX = 10000;
+int DROP_RATE_MAX = 100;
+// Variables for Min values for settings
+int PLAYER_RADIUS_MIN = 1;
+int SLOW_RADIUS_MIN = 1;
+int MEDIUM_RADIUS_MIN = 1;
+int FAST_RADIUS_MIN = 1;
+int PICKUP_RADIUS_MIN = 1;
+int SPEED_MIN = 2;
+int HEALTH_MIN = 1000;
+int AMMO_MIN = 0;
+int DROP_RATE_MIN = 0;
 /** HARD CODE BELOW FOR TESTING **/
 //HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);
 

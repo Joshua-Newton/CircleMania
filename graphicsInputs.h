@@ -138,6 +138,371 @@ void kbdS(int key, int x, int y) {
         }
 
     }
+    //TODO: INPUT VALIDATION (make sure the numbers don't get too big or too small
+    if (screen == settings){
+        switch (key) {
+            case GLUT_KEY_LEFT :
+                if (playerSizeDisplay.is_overlapping(x,y)){
+                    if (PLAYER_RADIUS > 1) {
+                        PLAYER_RADIUS--;
+                    }
+                }
+                if (slowSizeDisplay.is_overlapping(x,y)){
+                    if (SLOW_RADIUS > 1) {
+                        SLOW_RADIUS--;
+                    }
+                }
+                if (mediumSizeDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_RADIUS > 1) {
+                        MEDIUM_RADIUS--;
+                    }
+                }
+                if (fastSizeDisplay.is_overlapping(x,y)){
+                    if (FAST_RADIUS > 1) {
+                        FAST_RADIUS--;
+                    }
+                }
+                if (pickupSizeDisplay.is_overlapping(x,y)){
+                    if (PICKUP_RADIUS > 1) {
+                        PICKUP_RADIUS--;
+                    }
+                }
+                if (playerSpeedDisplay.is_overlapping(x,y)){
+                    if (PLAYER_SPEED > 2) {
+                        PLAYER_SPEED--;
+                    }
+                }
+                if (slowSpeedDisplay.is_overlapping(x,y)){
+                    if (SLOW_SPEED > 2) {
+                        SLOW_SPEED--;
+                    }
+                }
+                if (mediumSpeedDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_SPEED > 2) {
+                        MEDIUM_SPEED--;
+                    }
+                }
+                if (fastSpeedDisplay.is_overlapping(x,y)){
+                    if (FAST_SPEED > 2) {
+                        FAST_SPEED--;
+                    }
+                }
+                if (bulletSpeedDisplay.is_overlapping(x,y)){
+                    if (BULLET_SPEED > 2) {
+                        BULLET_SPEED--;
+                    }
+                }
+                if (playerHealthDisplay.is_overlapping(x,y)){
+                    if (PLAYER_HEALTH > 1) {
+                        PLAYER_HEALTH--;
+                    }
+                }
+                if (slowHealthDisplay.is_overlapping(x,y)){
+                    if (SLOW_HEALTH > 1) {
+                        SLOW_HEALTH--;
+                    }
+                }
+                if (mediumHealthDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_HEALTH > 1) {
+                        MEDIUM_HEALTH--;
+                    }
+                }
+                if (fastHealthDisplay.is_overlapping(x,y)){
+                    if (FAST_HEALTH > 1) {
+                        FAST_HEALTH--;
+                    }
+                }
+                if (playerAmmoDisplay.is_overlapping(x,y)){
+                    if (PLAYER_SPECIALS > 0) {
+                        PLAYER_SPECIALS--;
+                    }
+                }
+                if (pickupDropRateDisplay.is_overlapping(x,y)){
+                    if (DROP_RATE > 0) {
+                        DROP_RATE--;
+                    }
+                }
+                break;
+            case GLUT_KEY_RIGHT :
+                if (playerSizeDisplay.is_overlapping(x,y)){
+                    if (PLAYER_RADIUS <= PLAYER_RADIUS_MAX) {
+                        PLAYER_RADIUS++;
+                    }
+                }
+                if (slowSizeDisplay.is_overlapping(x,y)){
+                    if (SLOW_RADIUS <= SLOW_RADIUS_MAX) {
+                        SLOW_RADIUS++;
+                    }
+                }
+                if (mediumSizeDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_RADIUS <= MEDIUM_RADIUS_MAX) {
+                        MEDIUM_RADIUS++;
+                    }
+                }
+                if (fastSizeDisplay.is_overlapping(x,y)){
+                    if (FAST_RADIUS <= FAST_RADIUS_MAX) {
+                        FAST_RADIUS++;
+                    }
+                }
+                if (pickupSizeDisplay.is_overlapping(x,y)){
+                    if (PICKUP_RADIUS <= PICKUP_RADIUS_MAX) {
+                        PICKUP_RADIUS++;
+                    }
+                }
+                if (playerSpeedDisplay.is_overlapping(x,y)){
+                    if (PLAYER_SPEED <= SPEED_MAX) {
+                        PLAYER_SPEED++;
+                    }
+                }
+                if (slowSpeedDisplay.is_overlapping(x,y)){
+                    if (SLOW_SPEED <= SPEED_MAX) {
+                        SLOW_SPEED++;
+                    }
+                }
+                if (mediumSpeedDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_SPEED <= SPEED_MAX) {
+                        MEDIUM_SPEED++;
+                    }
+                }
+                if (fastSpeedDisplay.is_overlapping(x,y)){
+                    if (FAST_SPEED <= SPEED_MAX) {
+                        FAST_SPEED++;
+                    }
+                }
+                if (bulletSpeedDisplay.is_overlapping(x,y)){
+                    if (BULLET_SPEED <= SPEED_MAX) {
+                        BULLET_SPEED++;
+                    }
+                }
+                if (playerHealthDisplay.is_overlapping(x,y)){
+                    if (PLAYER_HEALTH <= HEALTH_MAX) {
+                        PLAYER_HEALTH++;
+                    }
+                }
+                if (slowHealthDisplay.is_overlapping(x,y)){
+                    if (SLOW_HEALTH <= HEALTH_MAX) {
+                        SLOW_HEALTH++;
+                    }
+                }
+                if (mediumHealthDisplay.is_overlapping(x,y)){
+                    if (MEDIUM_HEALTH <= HEALTH_MAX) {
+                        MEDIUM_HEALTH++;
+                    }
+                }
+                if (fastHealthDisplay.is_overlapping(x,y)){
+                    if (FAST_HEALTH <= HEALTH_MAX) {
+                        FAST_HEALTH++;
+                    }
+                }
+                if (playerAmmoDisplay.is_overlapping(x,y)){
+                    if (PLAYER_SPECIALS <= AMMO_MAX) {
+                        PLAYER_SPECIALS++;
+                    }
+                }
+                if (pickupDropRateDisplay.is_overlapping(x,y)){
+                    if (DROP_RATE <= DROP_RATE_MAX) {
+                        DROP_RATE++;
+                    }
+                }
+                break;
+            case GLUT_KEY_UP :
+                if (playerSizeDisplay.is_overlapping(x,y)){
+                    PLAYER_RADIUS += 10;
+                    if (PLAYER_RADIUS > PLAYER_RADIUS_MAX){
+                        PLAYER_RADIUS = PLAYER_RADIUS_MAX;
+                    }
+                }
+                if (slowSizeDisplay.is_overlapping(x,y)){
+                    SLOW_RADIUS += 10;
+                    if (SLOW_RADIUS > SLOW_RADIUS_MAX){
+                        SLOW_RADIUS = SLOW_RADIUS_MAX;
+                    }
+                }
+                if (mediumSizeDisplay.is_overlapping(x,y)){
+                    MEDIUM_RADIUS += 10;
+                    if (MEDIUM_RADIUS > MEDIUM_RADIUS_MAX){
+                        MEDIUM_RADIUS = MEDIUM_RADIUS_MAX;
+                    }
+                }
+                if (fastSizeDisplay.is_overlapping(x,y)){
+                    FAST_RADIUS += 10;
+                    if (FAST_RADIUS > FAST_RADIUS_MAX){
+                        FAST_RADIUS = FAST_RADIUS_MAX;
+                    }
+                }
+                if (pickupSizeDisplay.is_overlapping(x,y)){
+                    PICKUP_RADIUS += 10;
+                    if (PICKUP_RADIUS > PICKUP_RADIUS_MAX){
+                        PICKUP_RADIUS = PICKUP_RADIUS_MAX;
+                    }
+                }
+                if (playerSpeedDisplay.is_overlapping(x,y)){
+                    PLAYER_SPEED += 10;
+                    if (PLAYER_SPEED > SPEED_MAX){
+                        PLAYER_SPEED = SPEED_MAX;
+                    }
+                }
+                if (slowSpeedDisplay.is_overlapping(x,y)){
+                    SLOW_SPEED += 10;
+                    if (SLOW_SPEED > SPEED_MAX){
+                        SLOW_SPEED = SPEED_MAX;
+                    }
+                }
+                if (mediumSpeedDisplay.is_overlapping(x,y)){
+                    MEDIUM_SPEED += 10;
+                    if (MEDIUM_SPEED > SPEED_MAX){
+                        MEDIUM_SPEED = SPEED_MAX;
+                    }
+                }
+                if (fastSpeedDisplay.is_overlapping(x,y)){
+                    FAST_SPEED += 10;
+                    if (FAST_SPEED > SPEED_MAX){
+                        FAST_SPEED = SPEED_MAX;
+                    }
+                }
+                if (bulletSpeedDisplay.is_overlapping(x,y)){
+                    BULLET_SPEED += 10;
+                    if (BULLET_SPEED > SPEED_MAX){
+                        BULLET_SPEED = SPEED_MAX;
+                    }
+                }
+                if (playerHealthDisplay.is_overlapping(x,y)){
+                    PLAYER_HEALTH += 10;
+                    if (PLAYER_HEALTH > HEALTH_MAX){
+                        PLAYER_HEALTH = HEALTH_MAX;
+                    }
+                }
+                if (slowHealthDisplay.is_overlapping(x,y)){
+                    SLOW_HEALTH += 10;
+                    if (SLOW_HEALTH > HEALTH_MAX){
+                        SLOW_HEALTH = HEALTH_MAX;
+                    }
+                }
+                if (mediumHealthDisplay.is_overlapping(x,y)){
+                    MEDIUM_HEALTH += 10;
+                    if (MEDIUM_HEALTH > HEALTH_MAX){
+                        MEDIUM_HEALTH = HEALTH_MAX;
+                    }
+                }
+                if (fastHealthDisplay.is_overlapping(x,y)){
+                    FAST_HEALTH += 10;
+                    if (FAST_HEALTH > HEALTH_MAX){
+                        FAST_HEALTH = HEALTH_MAX;
+                    }
+                }
+                if (playerAmmoDisplay.is_overlapping(x,y)){
+                    PLAYER_SPECIALS += 10;
+                    if (PLAYER_SPECIALS > AMMO_MAX){
+                        PLAYER_SPECIALS = AMMO_MAX;
+                    }
+                }
+                if (pickupDropRateDisplay.is_overlapping(x,y)){
+                    DROP_RATE += 10;
+                    if (DROP_RATE > DROP_RATE_MAX){
+                        DROP_RATE = DROP_RATE_MAX;
+                    }
+                }
+                break;
+            case GLUT_KEY_DOWN :
+                if (playerSizeDisplay.is_overlapping(x,y)){
+                    PLAYER_RADIUS -= 10;
+                    if (PLAYER_RADIUS < PLAYER_RADIUS_MIN){
+                        PLAYER_RADIUS = PLAYER_RADIUS_MIN;
+                    }
+                }
+                if (slowSizeDisplay.is_overlapping(x,y)){
+                    SLOW_RADIUS -= 10;
+                    if (SLOW_RADIUS < SLOW_RADIUS_MIN){
+                        SLOW_RADIUS = SLOW_RADIUS_MIN;
+                    }
+                }
+                if (mediumSizeDisplay.is_overlapping(x,y)){
+                    MEDIUM_RADIUS -= 10;
+                    if (MEDIUM_RADIUS < MEDIUM_RADIUS_MIN){
+                        MEDIUM_RADIUS = MEDIUM_RADIUS_MIN;
+                    }
+                }
+                if (fastSizeDisplay.is_overlapping(x,y)){
+                    FAST_RADIUS -= 10;
+                    if (FAST_RADIUS < FAST_RADIUS_MIN){
+                        FAST_RADIUS = FAST_RADIUS_MIN;
+                    }
+                }
+                if (pickupSizeDisplay.is_overlapping(x,y)){
+                    PICKUP_RADIUS -= 10;
+                    if (PICKUP_RADIUS < PICKUP_RADIUS_MIN){
+                        PICKUP_RADIUS = PICKUP_RADIUS_MIN;
+                    }
+                }
+                if (playerSpeedDisplay.is_overlapping(x,y)){
+                    PLAYER_SPEED -= 10;
+                    if (PLAYER_SPEED < SPEED_MIN){
+                        PLAYER_SPEED = SPEED_MIN;
+                    }
+                }
+                if (slowSpeedDisplay.is_overlapping(x,y)){
+                    SLOW_SPEED -= 10;
+                    if (SLOW_SPEED < SPEED_MIN){
+                        SLOW_SPEED = SPEED_MIN;
+                    }
+                }
+                if (mediumSpeedDisplay.is_overlapping(x,y)){
+                    MEDIUM_SPEED -= 10;
+                    if (MEDIUM_SPEED < SPEED_MIN){
+                        MEDIUM_SPEED = SPEED_MIN;
+                    }
+                }
+                if (fastSpeedDisplay.is_overlapping(x,y)){
+                    FAST_SPEED -= 10;
+                    if (FAST_SPEED < SPEED_MIN){
+                        FAST_SPEED = SPEED_MIN;
+                    }
+                }
+                if (bulletSpeedDisplay.is_overlapping(x,y)){
+                    BULLET_SPEED -= 10;
+                    if (BULLET_SPEED < SPEED_MIN){
+                        BULLET_SPEED = SPEED_MIN;
+                    }
+                }
+                if (playerHealthDisplay.is_overlapping(x,y)){
+                    PLAYER_HEALTH -= 10;
+                    if (PLAYER_HEALTH < HEALTH_MIN){
+                        PLAYER_HEALTH = HEALTH_MIN;
+                    }
+                }
+                if (slowHealthDisplay.is_overlapping(x,y)){
+                    SLOW_HEALTH -= 10;
+                    if (SLOW_HEALTH < HEALTH_MIN){
+                        SLOW_HEALTH = HEALTH_MIN;
+                    }
+                }
+                if (mediumHealthDisplay.is_overlapping(x,y)){
+                    MEDIUM_HEALTH -= 10;
+                    if (MEDIUM_HEALTH < HEALTH_MIN){
+                        MEDIUM_HEALTH = HEALTH_MIN;
+                    }
+                }
+                if (fastHealthDisplay.is_overlapping(x,y)){
+                    FAST_HEALTH -= 10;
+                    if (FAST_HEALTH < HEALTH_MIN){
+                        FAST_HEALTH = HEALTH_MIN;
+                    }
+                }
+                if (playerAmmoDisplay.is_overlapping(x,y)){
+                    PLAYER_SPECIALS -= 10;
+                    if (PLAYER_SPECIALS < AMMO_MIN){
+                        PLAYER_SPECIALS = AMMO_MIN;
+                    }
+                }
+                if (pickupDropRateDisplay.is_overlapping(x,y)){
+                    DROP_RATE -= 10;
+                    if (DROP_RATE < DROP_RATE_MIN){
+                        DROP_RATE = DROP_RATE_MIN;
+                    }
+                }
+                break;
+        }
+    }
     glutPostRedisplay();
 
     return;
@@ -243,6 +608,7 @@ void mouse(int button, int state, int x, int y) {
         //if start game button (rectangle) is clicked, start the game
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {
             player.setPosition(width / 2, height / 2);
+            player.setRadius(PLAYER_RADIUS);
             player.setHealth(PLAYER_HEALTH);
             player.setScore(0);
             player.setSpecialAttacks(PLAYER_SPECIALS);
@@ -328,6 +694,7 @@ void mouse(int button, int state, int x, int y) {
     if (screen == endGame) {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {
             player.setPosition(width / 2, height / 2);
+            player.setRadius(PLAYER_RADIUS);
             player.setHealth(PLAYER_HEALTH);
             player.setScore(0);
             player.setSpecialAttacks(PLAYER_SPECIALS);
