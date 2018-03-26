@@ -8,6 +8,7 @@
 #include "graphics.h"
 #include "graphicsConstants.h"
 
+//TODO: investigate if this file is necessary
 
 void init() {
     // Set up window size and player's initial position

@@ -66,6 +66,7 @@ color SHOTGUN_COLOR = {0.75,0.5,0.5};
 color NUKE_COLOR = {0.3, 0.5, 0.7};
 color NUKE_CIRCLE_COLOR = {0.1, 0.5, 0.7};
 color HIT_COLOR = {0.9, 0.5, 0.1};
+color SETTINGS_DISPLAY_COLOR = {1,1,1}; // White
 
 // Bullet damage constant
 int BULLET_DAMAGE = 1;
@@ -151,6 +152,27 @@ Rectangle_Shape restartGameButton;
 Rectangle_Shape settingsButton;
 Rectangle_Shape mainMenuButton;
 
+// Rectangles used for settings display
+Rectangle_Shape playerSizeDisplay;
+Rectangle_Shape slowSizeDisplay;
+Rectangle_Shape mediumSizeDisplay;
+Rectangle_Shape fastSizeDisplay;
+Rectangle_Shape pickupSizeDisplay;
+Rectangle_Shape playerSpeedDisplay;
+Rectangle_Shape slowSpeedDisplay;
+Rectangle_Shape mediumSpeedDisplay;
+Rectangle_Shape fastSpeedDisplay;
+Rectangle_Shape bulletSpeedDisplay;
+Rectangle_Shape playerHealthDisplay;
+Rectangle_Shape slowHealthDisplay;
+Rectangle_Shape mediumHealthDisplay;
+Rectangle_Shape fastHealthDisplay;
+Rectangle_Shape playerAmmoDisplay;
+Rectangle_Shape pickupDropRateDisplay;
+//TODO: Add enabling/disabling certain pickups
+//TODO: Add enabling/disabling HUD
+
+
 // Mouse global position variables
 int MOUSE_X = 0;
 int MOUSE_Y = 0;
@@ -161,10 +183,13 @@ int wd;
 int WIDTH = 1400;
 int HEIGHT = 800;
 
-// Variables for Button dimensions
+// Variables for Button dimensions and/or spacing
 int BUTTON_WIDTH = 200;
 int BUTTON_HEIGHT = 75;
 int BUTTON_X_POSITION =  (WIDTH/2) - (BUTTON_WIDTH/2);
+int SETTING_DISPLAY_WIDTH = 50;
+int SETTING_DISPLAY_HEIGHT = 20;
+int SETTING_DISPLAY_MARGIN = 5;
 
 /** HARD CODE BELOW FOR TESTING **/
 //HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);
