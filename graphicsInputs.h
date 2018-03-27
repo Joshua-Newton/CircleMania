@@ -693,10 +693,8 @@ void mouse(int button, int state, int x, int y) {
              SPEED_UP_CIRCLE.set_radius(PICKUP_RADIUS);
              SHOTGUN_CIRCLE.set_radius(PICKUP_RADIUS);
              HEALTH_CIRCLE.set_radius(PICKUP_RADIUS);
+             player.setSpeed(PLAYER_SPEED);
          }
-
-        //TODO: FILE I/O FOR CUSTOM DIFFICULTY
-
 
     }
 
