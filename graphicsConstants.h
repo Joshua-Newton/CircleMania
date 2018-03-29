@@ -169,6 +169,7 @@ Rectangle_Shape mediumHealthDisplay;
 Rectangle_Shape fastHealthDisplay;
 Rectangle_Shape playerAmmoDisplay;
 Rectangle_Shape pickupDropRateDisplay;
+Rectangle_Shape spawnRateDisplay;
 //TODO: Add enabling/disabling certain pickups
 //TODO: Add enabling/disabling HUD
 
@@ -201,6 +202,7 @@ int SPEED_MAX = 100;
 int HEALTH_MAX = 100;
 int AMMO_MAX = 10000;
 int DROP_RATE_MAX = 100;
+int SPAWN_RATE_MAX = 100000;
 // Variables for Min values for settings
 int PLAYER_RADIUS_MIN = 1;
 int SLOW_RADIUS_MIN = 1;
@@ -211,8 +213,8 @@ int SPEED_MIN = 2;
 int HEALTH_MIN = 1000;
 int AMMO_MIN = 0;
 int DROP_RATE_MIN = 0;
+int SPAWN_RATE_MIN = 1;
 /** HARD CODE BELOW FOR TESTING **/
-//HollowCircle hollow(30,50,{1,1,0.2},WIDTH/2,HEIGHT/2);
 
 /** HARD CODE ABOVE FOR TESTING **/
 

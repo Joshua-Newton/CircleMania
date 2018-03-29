@@ -268,6 +268,20 @@ void displaySettings() {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
 
+    spawnRateDisplay.draw();
+
+    number = to_string(ENEMY_SPAWNRATE);
+    glColor3f(0, 0, 0);
+    glRasterPos2i(spawnRateDisplay.get_x() + 10, spawnRateDisplay.get_y() + 15);
+    for (int i = 0; i < number.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, number[i]);
+    }
+    label = "Enemy Spawn Rate (Milliseconds)";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(spawnRateDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, spawnRateDisplay.get_y() + 15);
+    for (int i = 0; i < label.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
+    }
 
     //TODO: display file I/O options for custom difficulty
 

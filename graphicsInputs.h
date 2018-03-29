@@ -138,88 +138,92 @@ void kbdS(int key, int x, int y) {
         }
 
     }
-    //TODO: INPUT VALIDATION (make sure the numbers don't get too big or too small
     if (screen == settings){
         switch (key) {
-            case GLUT_KEY_LEFT :
+            case GLUT_KEY_LEFT:
                 if (playerSizeDisplay.is_overlapping(x,y)){
-                    if (PLAYER_RADIUS > 1) {
+                    if (PLAYER_RADIUS > PLAYER_RADIUS_MIN) {
                         PLAYER_RADIUS--;
                     }
                 }
                 if (slowSizeDisplay.is_overlapping(x,y)){
-                    if (SLOW_RADIUS > 1) {
+                    if (SLOW_RADIUS > SLOW_RADIUS_MIN) {
                         SLOW_RADIUS--;
                     }
                 }
                 if (mediumSizeDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_RADIUS > 1) {
+                    if (MEDIUM_RADIUS > MEDIUM_RADIUS_MIN) {
                         MEDIUM_RADIUS--;
                     }
                 }
                 if (fastSizeDisplay.is_overlapping(x,y)){
-                    if (FAST_RADIUS > 1) {
+                    if (FAST_RADIUS > FAST_RADIUS_MIN) {
                         FAST_RADIUS--;
                     }
                 }
                 if (pickupSizeDisplay.is_overlapping(x,y)){
-                    if (PICKUP_RADIUS > 1) {
+                    if (PICKUP_RADIUS > PICKUP_RADIUS_MIN) {
                         PICKUP_RADIUS--;
                     }
                 }
                 if (playerSpeedDisplay.is_overlapping(x,y)){
-                    if (PLAYER_SPEED > 2) {
+                    if (PLAYER_SPEED > SPEED_MIN) {
                         PLAYER_SPEED--;
                     }
                 }
                 if (slowSpeedDisplay.is_overlapping(x,y)){
-                    if (SLOW_SPEED > 2) {
+                    if (SLOW_SPEED > SPEED_MIN) {
                         SLOW_SPEED--;
                     }
                 }
                 if (mediumSpeedDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_SPEED > 2) {
+                    if (MEDIUM_SPEED > SPEED_MIN) {
                         MEDIUM_SPEED--;
                     }
                 }
                 if (fastSpeedDisplay.is_overlapping(x,y)){
-                    if (FAST_SPEED > 2) {
+                    if (FAST_SPEED > SPEED_MIN) {
                         FAST_SPEED--;
                     }
                 }
                 if (bulletSpeedDisplay.is_overlapping(x,y)){
-                    if (BULLET_SPEED > 2) {
+                    if (BULLET_SPEED > SPEED_MIN) {
                         BULLET_SPEED--;
                     }
                 }
                 if (playerHealthDisplay.is_overlapping(x,y)){
-                    if (PLAYER_HEALTH > 1) {
+                    if (PLAYER_HEALTH > HEALTH_MIN) {
                         PLAYER_HEALTH--;
                     }
                 }
                 if (slowHealthDisplay.is_overlapping(x,y)){
-                    if (SLOW_HEALTH > 1) {
+                    if (SLOW_HEALTH > HEALTH_MIN) {
                         SLOW_HEALTH--;
                     }
                 }
                 if (mediumHealthDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_HEALTH > 1) {
+                    if (MEDIUM_HEALTH > HEALTH_MIN) {
                         MEDIUM_HEALTH--;
                     }
                 }
                 if (fastHealthDisplay.is_overlapping(x,y)){
-                    if (FAST_HEALTH > 1) {
+                    if (FAST_HEALTH > HEALTH_MIN) {
                         FAST_HEALTH--;
                     }
                 }
                 if (playerAmmoDisplay.is_overlapping(x,y)){
-                    if (PLAYER_SPECIALS > 0) {
+                    if (PLAYER_SPECIALS > AMMO_MIN) {
                         PLAYER_SPECIALS--;
                     }
                 }
                 if (pickupDropRateDisplay.is_overlapping(x,y)){
-                    if (DROP_RATE > 0) {
+                    if (DROP_RATE > DROP_RATE_MIN) {
                         DROP_RATE--;
+                    }
+                }
+                if (spawnRateDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE > SPAWN_RATE_MIN) {
+                        ENEMY_SPAWNRATE--;
                     }
                 }
                 break;
@@ -302,6 +306,11 @@ void kbdS(int key, int x, int y) {
                 if (pickupDropRateDisplay.is_overlapping(x,y)){
                     if (DROP_RATE <= DROP_RATE_MAX) {
                         DROP_RATE++;
+                    }
+                }
+                if (spawnRateDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE <= SPAWN_RATE_MAX) {
+                        ENEMY_SPAWNRATE++;
                     }
                 }
                 break;
@@ -402,6 +411,12 @@ void kbdS(int key, int x, int y) {
                         DROP_RATE = DROP_RATE_MAX;
                     }
                 }
+                if (spawnRateDisplay.is_overlapping(x,y)){
+                    ENEMY_SPAWNRATE += 10;
+                    if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX) {
+                        ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+                    }
+                }
                 break;
             case GLUT_KEY_DOWN :
                 if (playerSizeDisplay.is_overlapping(x,y)){
@@ -498,6 +513,12 @@ void kbdS(int key, int x, int y) {
                     DROP_RATE -= 10;
                     if (DROP_RATE < DROP_RATE_MIN){
                         DROP_RATE = DROP_RATE_MIN;
+                    }
+                }
+                if (spawnRateDisplay.is_overlapping(x,y)){
+                    ENEMY_SPAWNRATE -= 10;
+                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
+                        ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
                     }
                 }
                 break;

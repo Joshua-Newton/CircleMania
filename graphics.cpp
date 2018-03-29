@@ -126,7 +126,11 @@ void init() {
     pickupDropRateDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
     pickupDropRateDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     pickupDropRateDisplay.set_position(playerAmmoDisplay.get_x(),playerAmmoDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
-    /**  NOTE: ANY CHANGES IN init HERE MUST BE REPLICATED IN graphicsInit.cpp  */
+
+    spawnRateDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
+    spawnRateDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
+    spawnRateDisplay.set_position(pickupDropRateDisplay.get_x(),pickupDropRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
+
 
 }
 
