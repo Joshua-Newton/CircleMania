@@ -715,6 +715,12 @@ void mouse(int button, int state, int x, int y) {
              SHOTGUN_CIRCLE.set_radius(PICKUP_RADIUS);
              HEALTH_CIRCLE.set_radius(PICKUP_RADIUS);
              player.setSpeed(PLAYER_SPEED);
+             SLOW_HIT_CIRCLE.setRadiusInner(SLOW_RADIUS);
+             SLOW_HIT_CIRCLE.setRadiusOuter(SLOW_RADIUS + HIT_CIRCLE_SIZE);
+             MEDIUM_HIT_CIRCLE.setRadiusInner(MEDIUM_RADIUS);
+             MEDIUM_HIT_CIRCLE.setRadiusOuter(MEDIUM_RADIUS + HIT_CIRCLE_SIZE);
+             FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
+             FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
          }
 
     }

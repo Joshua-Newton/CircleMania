@@ -23,5 +23,3 @@ Known bugs in the game:
 
 8.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
     as you move the mouse
-
-9.  When changing enemy sizes from in game, the hit circles do not adjust.
