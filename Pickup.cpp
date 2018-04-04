@@ -150,11 +150,11 @@ void SpeedIncrease::setSpeedTime(int newLifeTime){
 void SpeedIncrease::pickup(Player &player) {
     // If the player, already has a boost, just reset time. This prevents speed boosts from stacking too much
     if (player.getBoostBool()){
-        player.setBoostTime(lifeTime);
+        player.setBoostTime(speedTime);
     }
     else {
         player.setBoostBool(true);
-        player.setBoostTime(lifeTime);
+        player.setBoostTime(speedTime);
         player.setSpeed(player.getSpeed() + speedBuff);
     }
 
@@ -316,11 +316,11 @@ void Shotgun::setTimeLength(int newTimeLength) {
 // Methods
 void Shotgun::pickup(Player &player) {
     if (player.getShotgunBool()){
-        player.setShotgunTime(lifeTime);
+        player.setShotgunTime(time);
     }
     else {
         player.setShotgunBool(true);
-        player.setShotgunTime(lifeTime);
+        player.setShotgunTime(time);
     }
 
 }

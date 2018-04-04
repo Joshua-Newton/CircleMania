@@ -1,25 +1,19 @@
 Known bugs in the game:
 
-1.  Picking up a shotgun pickup while a shotgun pickup is already active will not always properly reset time,
-    instead it will either reduce time by a seemingly random amount or increase it by a similarly random amount,
-    but not higher than the set time constant.
-
-2.  The above bug also exists for the speed pickup, but to a less severe degree.
-
-3.  When loading a game, bullets are not properly loaded. It appears that the bullets vector is cleared directly after
+1.  When loading a game, bullets are not properly loaded. It appears that the bullets vector is cleared directly after
     loading them into the game. Investigate further.
 
-4.  Player moves faster diagonally. NOTE: can fix this in graphicsTimers.h where movement is handled
+2.  Player moves faster diagonally. NOTE: can fix this in graphicsTimers.h where movement is handled
 
-5.  When first shooting, the target position (The current mouse position) sometimes does not register correctly. This
+3.  When first shooting, the target position (The current mouse position) sometimes does not register correctly. This
     is fixed after moving the mouse, but returns if the mouse button is released, moved to another position, then clicked
     without moving the mouse.
 
-6.  When loading a game, pickups are not loaded. It appears that the pickup vector is never cleared, and the loading function
+4.  When loading a game, pickups are not loaded. It appears that the pickup vector is never cleared, and the loading function
     does not change the vector at all.
 
-7.  When loading a game, sometimes bullets that do load do not act properly. Once observed them move slowly to the right.
+5.  When loading a game, sometimes bullets that do load do not act properly. Once observed them move slowly to the right.
     Another time, observed no movement at all.
 
-8.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
+6.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
     as you move the mouse
