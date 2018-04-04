@@ -229,87 +229,87 @@ void kbdS(int key, int x, int y) {
                 break;
             case GLUT_KEY_RIGHT :
                 if (playerSizeDisplay.is_overlapping(x,y)){
-                    if (PLAYER_RADIUS <= PLAYER_RADIUS_MAX) {
+                    if (PLAYER_RADIUS < PLAYER_RADIUS_MAX) {
                         PLAYER_RADIUS++;
                     }
                 }
                 if (slowSizeDisplay.is_overlapping(x,y)){
-                    if (SLOW_RADIUS <= SLOW_RADIUS_MAX) {
+                    if (SLOW_RADIUS < SLOW_RADIUS_MAX) {
                         SLOW_RADIUS++;
                     }
                 }
                 if (mediumSizeDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_RADIUS <= MEDIUM_RADIUS_MAX) {
+                    if (MEDIUM_RADIUS < MEDIUM_RADIUS_MAX) {
                         MEDIUM_RADIUS++;
                     }
                 }
                 if (fastSizeDisplay.is_overlapping(x,y)){
-                    if (FAST_RADIUS <= FAST_RADIUS_MAX) {
+                    if (FAST_RADIUS < FAST_RADIUS_MAX) {
                         FAST_RADIUS++;
                     }
                 }
                 if (pickupSizeDisplay.is_overlapping(x,y)){
-                    if (PICKUP_RADIUS <= PICKUP_RADIUS_MAX) {
+                    if (PICKUP_RADIUS < PICKUP_RADIUS_MAX) {
                         PICKUP_RADIUS++;
                     }
                 }
                 if (playerSpeedDisplay.is_overlapping(x,y)){
-                    if (PLAYER_SPEED <= SPEED_MAX) {
+                    if (PLAYER_SPEED < SPEED_MAX) {
                         PLAYER_SPEED++;
                     }
                 }
                 if (slowSpeedDisplay.is_overlapping(x,y)){
-                    if (SLOW_SPEED <= SPEED_MAX) {
+                    if (SLOW_SPEED < SPEED_MAX) {
                         SLOW_SPEED++;
                     }
                 }
                 if (mediumSpeedDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_SPEED <= SPEED_MAX) {
+                    if (MEDIUM_SPEED < SPEED_MAX) {
                         MEDIUM_SPEED++;
                     }
                 }
                 if (fastSpeedDisplay.is_overlapping(x,y)){
-                    if (FAST_SPEED <= SPEED_MAX) {
+                    if (FAST_SPEED < SPEED_MAX) {
                         FAST_SPEED++;
                     }
                 }
                 if (bulletSpeedDisplay.is_overlapping(x,y)){
-                    if (BULLET_SPEED <= SPEED_MAX) {
+                    if (BULLET_SPEED < SPEED_MAX) {
                         BULLET_SPEED++;
                     }
                 }
                 if (playerHealthDisplay.is_overlapping(x,y)){
-                    if (PLAYER_HEALTH <= HEALTH_MAX) {
+                    if (PLAYER_HEALTH < HEALTH_MAX) {
                         PLAYER_HEALTH++;
                     }
                 }
                 if (slowHealthDisplay.is_overlapping(x,y)){
-                    if (SLOW_HEALTH <= HEALTH_MAX) {
+                    if (SLOW_HEALTH < HEALTH_MAX) {
                         SLOW_HEALTH++;
                     }
                 }
                 if (mediumHealthDisplay.is_overlapping(x,y)){
-                    if (MEDIUM_HEALTH <= HEALTH_MAX) {
+                    if (MEDIUM_HEALTH < HEALTH_MAX) {
                         MEDIUM_HEALTH++;
                     }
                 }
                 if (fastHealthDisplay.is_overlapping(x,y)){
-                    if (FAST_HEALTH <= HEALTH_MAX) {
+                    if (FAST_HEALTH < HEALTH_MAX) {
                         FAST_HEALTH++;
                     }
                 }
                 if (playerAmmoDisplay.is_overlapping(x,y)){
-                    if (PLAYER_SPECIALS <= AMMO_MAX) {
+                    if (PLAYER_SPECIALS < AMMO_MAX) {
                         PLAYER_SPECIALS++;
                     }
                 }
                 if (pickupDropRateDisplay.is_overlapping(x,y)){
-                    if (DROP_RATE <= DROP_RATE_MAX) {
+                    if (DROP_RATE < DROP_RATE_MAX) {
                         DROP_RATE++;
                     }
                 }
                 if (spawnRateDisplay.is_overlapping(x,y)){
-                    if (ENEMY_SPAWNRATE <= SPAWN_RATE_MAX) {
+                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
                         ENEMY_SPAWNRATE++;
                     }
                 }
@@ -517,8 +517,8 @@ void kbdS(int key, int x, int y) {
                 }
                 if (spawnRateDisplay.is_overlapping(x,y)){
                     ENEMY_SPAWNRATE -= 10;
-                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
-                        ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN) {
+                        ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
                     }
                 }
                 break;
