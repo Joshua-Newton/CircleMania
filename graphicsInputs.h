@@ -226,6 +226,14 @@ void kbdS(int key, int x, int y) {
                         ENEMY_SPAWNRATE--;
                     }
                 }
+                if (spawnRateSecondsDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE > SPAWN_RATE_MIN) {
+                        ENEMY_SPAWNRATE -= 1000;
+                        if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                            ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+                        }
+                    }
+                }
                 break;
             case GLUT_KEY_RIGHT :
                 if (playerSizeDisplay.is_overlapping(x,y)){
@@ -311,6 +319,14 @@ void kbdS(int key, int x, int y) {
                 if (spawnRateDisplay.is_overlapping(x,y)){
                     if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
                         ENEMY_SPAWNRATE++;
+                    }
+                }
+                if (spawnRateSecondsDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
+                        ENEMY_SPAWNRATE += 1000;
+                        if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                            ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+                        }
                     }
                 }
                 break;
@@ -417,6 +433,14 @@ void kbdS(int key, int x, int y) {
                         ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
                     }
                 }
+                if (spawnRateSecondsDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE < SPAWN_RATE_MAX) {
+                        ENEMY_SPAWNRATE += 10000;
+                        if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                            ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+                        }
+                    }
+                }
                 break;
             case GLUT_KEY_DOWN :
                 if (playerSizeDisplay.is_overlapping(x,y)){
@@ -519,6 +543,14 @@ void kbdS(int key, int x, int y) {
                     ENEMY_SPAWNRATE -= 10;
                     if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN) {
                         ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+                    }
+                }
+                if (spawnRateSecondsDisplay.is_overlapping(x,y)){
+                    if (ENEMY_SPAWNRATE > SPAWN_RATE_MIN) {
+                        ENEMY_SPAWNRATE -= 10000;
+                        if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                            ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+                        }
                     }
                 }
                 break;

@@ -131,6 +131,10 @@ void init() {
     spawnRateDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     spawnRateDisplay.set_position(pickupDropRateDisplay.get_x(),pickupDropRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
 
+    spawnRateSecondsDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
+    spawnRateSecondsDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
+    spawnRateSecondsDisplay.set_position(spawnRateDisplay.get_x(),spawnRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
+
 
 }
 

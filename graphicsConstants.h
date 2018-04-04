@@ -170,6 +170,7 @@ Rectangle_Shape fastHealthDisplay;
 Rectangle_Shape playerAmmoDisplay;
 Rectangle_Shape pickupDropRateDisplay;
 Rectangle_Shape spawnRateDisplay;
+Rectangle_Shape spawnRateSecondsDisplay;
 //TODO: Add enabling/disabling certain pickups
 //TODO: Add enabling/disabling HUD
 
