@@ -48,8 +48,13 @@ void kbdUp(unsigned char key, int x, int y){
 
 
 // http://www.theasciicode.com.ar/ascii-control-characters/escape-ascii-code-27.html
-void kbd(unsigned char key, int x, int y)
-{
+void kbd(unsigned char key, int x, int y) {
+
+    for (int i = 0; i < menuButtonsVector.size(); i++){
+        menuButtonsVector[i]->set_fill(DEFAULT_MENU_BUTTON_COLOR);
+    }
+
+
     // escape
     if (key == 27) {
         glutDestroyWindow(wd);
@@ -57,29 +62,41 @@ void kbd(unsigned char key, int x, int y)
     }
 
     switch (key) {
-        // Pause the game = 'P' , 'p', or space
+        // Pause the game = 'space' , 'P', or 'p', in that order
         case (32):
             if (screen == game) {
                 screen = pauseGame;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             else if (screen == pauseGame){
                 screen = game;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             break;
         case (80):
             if (screen == game) {
                 screen = pauseGame;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             else if (screen == pauseGame){
                 screen = game;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             break;
         case (112):
             if (screen == game) {
                 screen = pauseGame;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             else if (screen == pauseGame){
                 screen = game;
+                MOUSE_X = x;
+                MOUSE_Y = y;
             }
             break;
             // Down = S
@@ -138,6 +155,7 @@ void kbdS(int key, int x, int y) {
         }
 
     }
+
     if (screen == settings){
         switch (key) {
             case GLUT_KEY_LEFT:
@@ -563,78 +581,19 @@ void kbdS(int key, int x, int y) {
 
 void cursor(int x, int y) {
 
+
     // Handles hovering events outside of the game
     if (screen != game){
-        // start button hover
-        if (startButton.is_overlapping(x, y)){
-            startButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            startButton.set_fill(START_BUTTON_COLOR);
-        }
 
-        // load button hover
-        if (loadButton.is_overlapping(x, y)) {
-            loadButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            loadButton.set_fill(LOAD_BUTTON_COLOR);
-        }
+        for (int i = 0; i < menuButtonsVector.size(); i++){
+            menuButtonsVector[i]->set_fill(HOVER_COLOR);
 
-        // save button hover
-        if (saveButton.is_overlapping(x, y)) {
-            saveButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            saveButton.set_fill(SAVE_BUTTON_COLOR);
-        }
-
-        // resume button hover
-        if (resumeButton.is_overlapping(x, y)) {
-            resumeButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            resumeButton.set_fill(RESUME_BUTTON_COLOR);
-        }
-
-        // restart button hover
-        if (restartGameButton.is_overlapping(x, y)) {
-            restartGameButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            restartGameButton.set_fill(RESTART_GAME_BUTTON_COLOR);
-        }
-
-        // exit button hover
-        if (exitButton.is_overlapping(x, y)) {
-            exitButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            exitButton.set_fill(EXIT_BUTTON_COLOR);
-        }
-
-        // exit pause button hover
-        if (exitButtonPause.is_overlapping(x, y)) {
-            exitButtonPause.set_fill(HOVER_COLOR);
-        }
-        else {
-            exitButtonPause.set_fill(EXIT_BUTTON_COLOR);
-        }
-
-        // Settings button hover
-        if (settingsButton.is_overlapping(x, y)) {
-            settingsButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            settingsButton.set_fill(EXIT_BUTTON_COLOR);
-        }
-
-        // Main Menu button hover
-        if (mainMenuButton.is_overlapping(x, y)) {
-            mainMenuButton.set_fill(HOVER_COLOR);
-        }
-        else {
-            mainMenuButton.set_fill(EXIT_BUTTON_COLOR);
+            if (menuButtonsVector[i]->is_overlapping(x,y)){
+                menuButtonsVector[i]->set_fill(HOVER_COLOR);
+            }
+            else {
+                menuButtonsVector[i]->set_fill(DEFAULT_MENU_BUTTON_COLOR);
+            }
         }
 
     }
@@ -655,6 +614,10 @@ void drag(int x,int y){
 // button will be GLUT_LEFT_BUTTON or GLUT_RIGHT_BUTTON
 // state will be GLUT_UP or GLUT_DOWN
 void mouse(int button, int state, int x, int y) {
+
+    for (int i = 0; i < menuButtonsVector.size(); i++){
+        menuButtonsVector[i]->set_fill(DEFAULT_MENU_BUTTON_COLOR);
+    }
 
     /** Interactions on start screen **/
     if (screen == start) {

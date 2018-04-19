@@ -17,7 +17,7 @@ void displayHUD();
 // display settings screen
 void displaySettings() {
     // Draw Buttons and text
-    mainMenuButton.draw();
+    menuButtonsVector[8]->draw();
 
     string mainMenuMessage = "Main Menu";
     glColor3f(1, 1, 1);
@@ -304,14 +304,15 @@ void displaySettings() {
 void displayPause() {
     // Draw buttons and text
     startBackground.draw();
-    resumeButton.draw();
-    restartGameButton.draw();
-    loadButton.draw();
-    saveButton.draw();
-    exitButtonPause.draw();
+
+    menuButtonsVector[2]->draw(); // resumeButton
+    menuButtonsVector[6]->draw(); // restartGameButton
+    menuButtonsVector[1]->draw(); // loadButton
+    menuButtonsVector[3]->draw(); // saveButton
+    menuButtonsVector[5]->draw(); // exitButtonPause
     displayTitle();
     displayControls();
-    mainMenuButton.draw();
+    menuButtonsVector[8]->draw(); // mainMenuButton
 
     string mainMenuMessage = "Main Menu";
     glColor3f(1, 1, 1);
@@ -365,11 +366,12 @@ void displayPause() {
 void displayEnd() {
     // draw the buttons and text
     startBackground.draw();
-    startButton.draw();
-    loadButton.draw();
-    exitButton.draw();
+
+    menuButtonsVector[0]->draw(); // startButton
+    menuButtonsVector[1]->draw(); // loadButton
+    menuButtonsVector[4]->draw(); // exitButton
     displayTitle();
-    mainMenuButton.draw();
+    menuButtonsVector[8]->draw(); // mainMenuButton
 
     string mainMenuMessage = "Main Menu";
     glColor3f(1, 1, 1);
@@ -413,10 +415,11 @@ void displayStart() {
 
     // draw the buttons and text
     startBackground.draw();
-    startButton.draw();
-    loadButton.draw();
-    exitButton.draw();
-    settingsButton.draw();
+
+    menuButtonsVector[0]->draw(); // startButton
+    menuButtonsVector[1]->draw(); // loadButton
+    menuButtonsVector[4]->draw(); // exitButton
+    menuButtonsVector[7]->draw(); // settingsButton
     displayTitle();
     displayControls();
 

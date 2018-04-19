@@ -15,6 +15,7 @@ Shape::Shape() {
 
 Shape::Shape(color f) : Shape() {
     fill = f;
+    position = {0,0};
 }
 
 Shape::Shape(point p) : Shape() {
@@ -33,7 +34,7 @@ Shape::Shape(int x_in, int y_in) : Shape() {
     set_position(x_in, y_in);
 }
 
-Shape::Shape(const Shape &s) : fill(s.fill) {
+Shape::Shape(const Shape &s) : fill(s.fill) , position(s.position){
 }
 
 Shape::~Shape() {

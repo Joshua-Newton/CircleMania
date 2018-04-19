@@ -135,6 +135,17 @@ void init() {
     spawnRateSecondsDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     spawnRateSecondsDisplay.set_position(spawnRateDisplay.get_x(),spawnRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
 
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(startButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(loadButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(resumeButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(saveButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(exitButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(exitButtonPause));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(restartGameButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(settingsButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(mainMenuButton));
+
+    //menuButtonsVector[2]->set_position(BUTTON_X_POSITION, 200);
 
 }
 

@@ -12,9 +12,6 @@
 #include "Bullet.h"
 
 /***************** DEFINING VARIABLES AND CONSTANTS ******************/
-// TODO: Make this customizable from in game, maybe make a text file that gets read when the game starts,
-// TODO: gets written to from user input in a new screen.
-// TODO: Make all speeds, healths, spawnrates, fire rate, starting ammo, ammo dropped, buffs, customizable
 // Speed constants
 // NOTE: DO NOT REDUCE SPEEDS BELOW 2, OR THE MOVE CALCULATION WILL "BREAK"
 int SLOW_SPEED = 3;
@@ -58,6 +55,7 @@ color LOAD_BUTTON_COLOR = {1,0,0}; // Red
 color EXIT_BUTTON_COLOR = {1,0,0}; // Red
 color SETTINGS_BUTTON_COLOR = {1,0,0}; // Red
 color MAIN_MENU_BUTTON_COLOR = {1,0,0}; // Red
+color DEFAULT_MENU_BUTTON_COLOR = {1,0,0}; // Red
 color BACKGROUND_COLOR = {0,0,0}; // Black
 color SPEED_UP_COLOR = {0.5,.75,0.25};
 color AMMO_COLOR = {0.25,0.5,0.75};
@@ -76,7 +74,7 @@ int PLAYER_SPECIALS = 10;
 
 // Pickup Constants
 int NUMBER_PICKUPS_IMPLEMENTED = 5; // The number of pickups that have been implemented into the game (number of children of Pickup class)
-int DROP_RATE = 100; // Percentage
+int DROP_RATE = 10; // Percentage
 int PICKUP_LIFETIME = 20; // Seconds
 int SPEED_BUFF = 2; // Pixels per frame
 int SPEED_BUFF_TIME = 15; // Seconds
@@ -142,6 +140,7 @@ screenType screen;
 
 // Rectangles used for background and buttons
 Rectangle_Shape startBackground;
+
 Rectangle_Shape startButton;
 Rectangle_Shape loadButton;
 Rectangle_Shape resumeButton;
@@ -151,6 +150,7 @@ Rectangle_Shape exitButtonPause;
 Rectangle_Shape restartGameButton;
 Rectangle_Shape settingsButton;
 Rectangle_Shape mainMenuButton;
+vector<unique_ptr<Rectangle_Shape>> menuButtonsVector;
 
 // Rectangles used for settings display
 Rectangle_Shape playerSizeDisplay;

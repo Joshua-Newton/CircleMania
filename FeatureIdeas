@@ -14,19 +14,21 @@ Ideas for future game features:
 
 3. Difficulty Settings
     a. Easy
-    b. Normal
+    b. Normal
     c. Hard
     d. Legendary
-    e. Custom (Lots of file I/O, this would require allowing the user to type into the program and check their input)
+    e. Custom
        Allow these to be edited:
-        I. Sizes
-        II. Speeds
-        III. Healths
-        IV. Starting Ammo
-        V. Drop rates
+        I. Sizes                                complete
+        II. Speeds                              complete
+        III. Healths                            complete
+        IV. Starting Ammo                       complete
+        V. Drop rates                           complete
         VI. Which pickups are available
         VII. Whether the HUD appears (showing health, score, etc.)
+        VIII. Default Settings button
 
 4. New Enemies
     a. Rainbow (Guaranteed pickup drop)
-    b. Splitter (Splits into 4 random enemies centered at 4 different positions
+    b. Splitter (Splits into 4 random enemies centered at 4 different positions)
+    c. Wave (Movement is more random, maybe use sin or cos to determine slight variations in path)
