@@ -483,3 +483,90 @@ double HollowCircle::calculate_perimeter() const{
 }
 
 /********** End of Hollow Circle class ****************/
+
+//******************************************************************************************//
+//                          Beginning of Triangle Class (by Joshua Newton)                  //
+//******************************************************************************************//
+
+/** Triangle (Abstract) begin **/
+// Note these will be equilateral triangles only
+
+// Constructors
+Triangle::Triangle() : Shape(){
+
+}
+
+Triangle::Triangle(double sideLength) : Shape(){
+    this->sideLength = sideLength;
+}
+
+Triangle::Triangle(double sideLength, color f, int x, int y) : Shape(f,x,y){
+    this->sideLength = sideLength;
+}
+
+// Copy Conctructor
+Triangle::Triangle(const Triangle &copy){
+
+}
+// Getters
+double Triangle::getSideLength() const{
+
+}
+
+// Setters
+void Triangle::setSideLength(double newSideLength){
+
+}
+
+// functions
+double Triangle::calculate_area() const override{
+
+}
+double Triangle::calculate_perimeter() const override{
+
+}
+
+/** Triangle (Abstract) end **/
+
+/** TriangleUp begin **/
+void TriangleUp::draw() const{
+
+}
+string TriangleUp::getDirection() const{
+
+}
+/** TriangleUp end **/
+
+/** TriangleLeft begin **/
+void TriangleLeft::draw() const{
+
+}
+string TriangleLeft::getDirection() const{
+
+}
+
+/** TriangleLeft end **/
+
+/** TriangleDown begin **/
+
+void TriangleDown::draw() const{
+
+}
+string TriangleDown::getDirection() const{
+
+}
+/** TriangleDown end **/
+
+/** TriangleRight begin **/
+
+
+void TriangleRight::draw() const{
+
+}
+string TriangleRight::getDirection() const{
+
+}
+
+/** TriangleRight end **/
+
+/********** End of Triangle class ****************/
