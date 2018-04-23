@@ -181,52 +181,52 @@ private:
 };
 
 // Note these will be equilateral triangles only
-class Triangle : public Shape {
-public:
-    // Constructors
-    Triangle();
-    Triangle(double sideLength);
-    Triangle(double sideLength, color f, int x, int y);
-    // Copy Conctructor
-    Triangle(const Triangle &copy);
-    // Getters
-    double getSideLength() const;
-
-    // Setters
-    void setSideLength(double newSideLength);
-
-    // Functions
-    virtual void draw()const override;
-    virtual string getDirection() const = 0;
-
-private:
-    double sideLength;
-    double calculate_area() const override;
-    double calculate_perimeter() const override;
-};
-
-class TriangleUp : public Triangle{
-public:
-    void draw() const;
-    string getDirection() const;
-};
-
-class TriangleLeft : public Triangle{
-public:
-    void draw() const;
-    string getDirection() const;
-};
-
-class TriangleDown : public Triangle{
-public:
-    void draw() const;
-    string getDirection() const;
-};
-
-class TriangleRight : public Triangle{
-public:
-    void draw() const;
-    string getDirection() const;
-};
+//class Triangle : public Shape {
+//public:
+//    // Constructors
+//    Triangle();
+//    Triangle(double sideLength);
+//    Triangle(double sideLength, color f, int x, int y);
+//    // Copy Conctructor
+//    Triangle(const Triangle &copy);
+//    // Getters
+//    double getSideLength() const;
+//
+//    // Setters
+//    void setSideLength(double newSideLength);
+//
+//    // Functions
+//    virtual void draw()const override;
+//    virtual string getDirection() const = 0;
+//
+//private:
+//    double sideLength;
+//    double calculate_area() const override;
+//    double calculate_perimeter() const override;
+//};
+//
+//class TriangleUp : public Triangle{
+//public:
+//    void draw() const;
+//    string getDirection() const;
+//};
+//
+//class TriangleLeft : public Triangle{
+//public:
+//    void draw() const;
+//    string getDirection() const;
+//};
+//
+//class TriangleDown : public Triangle{
+//public:
+//    void draw() const;
+//    string getDirection() const;
+//};
+//
+//class TriangleRight : public Triangle{
+//public:
+//    void draw() const;
+//    string getDirection() const;
+//};
 
 #endif //CIRCLE_MANIA_SHAPES_H
