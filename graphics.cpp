@@ -145,7 +145,9 @@ void init() {
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(settingsButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(mainMenuButton));
 
-    //menuButtonsVector[2]->set_position(BUTTON_X_POSITION, 200);
+    /**   TESTING   **/
+    TriangleUp triangleUp(10.0,DEFAULT_MENU_BUTTON_COLOR,100,100);
+    TriangleDown triangleDown();
 
 }
 

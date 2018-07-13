@@ -36,6 +36,8 @@ struct point {
     int y;
 };
 
+enum triangleDirection {Up, Right, Down, Left};
+
 class Shape {
 public:
     // Constructors
@@ -191,7 +193,7 @@ public:
     Triangle(const Triangle &copy);
     // Getters
     double getSideLength() const;
-
+    triangleDirection getTriangleDirection() const;
     // Setters
     void setSideLength(double newSideLength);
 
@@ -201,30 +203,57 @@ public:
 
 private:
     double sideLength;
+    triangleDirection direction;
     double calculate_area() const override;
     double calculate_perimeter() const override;
 };
 
 class TriangleUp : public Triangle{
 public:
+    // Constructors
+    TriangleUp();
+    TriangleUp(double sideLength);
+    TriangleUp(double sideLength, color f, int x, int y);
+    // Copy Conctructor
+    TriangleUp(const Triangle &copy);
+
     void draw() const;
     string getDirection() const;
 };
 
 class TriangleLeft : public Triangle{
 public:
+    // Constructors
+    TriangleLeft();
+    TriangleLeft(double sideLength);
+    TriangleLeft(double sideLength, color f, int x, int y);
+    // Copy Conctructor
+    TriangleLeft(const Triangle &copy);
+
     void draw() const;
     string getDirection() const;
 };
 
 class TriangleDown : public Triangle{
 public:
+    TriangleDown();
+    TriangleDown(double sideLength);
+    TriangleDown(double sideLength, color f, int x, int y);
+    // Copy Conctructor
+    TriangleDown(const Triangle &copy);
+
     void draw() const;
     string getDirection() const;
 };
 
 class TriangleRight : public Triangle{
 public:
+    TriangleRight();
+    TriangleRight(double sideLength);
+    TriangleRight(double sideLength, color f, int x, int y);
+    // Copy Conctructor
+    TriangleRight(const Triangle &copy);
+
     void draw() const;
     string getDirection() const;
 };

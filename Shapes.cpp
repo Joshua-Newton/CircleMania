@@ -34,6 +34,7 @@ Shape::Shape(int x_in, int y_in) : Shape() {
     set_position(x_in, y_in);
 }
 
+// copy constructor
 Shape::Shape(const Shape &s) : fill(s.fill) , position(s.position){
 }
 
@@ -504,18 +505,21 @@ Triangle::Triangle(double sideLength, color f, int x, int y) : Shape(f,x,y){
     this->sideLength = sideLength;
 }
 
-// Copy Conctructor
+// Copy Constructor
 Triangle::Triangle(const Triangle &copy){
-
+    sideLength = copy.sideLength;
 }
 // Getters
 double Triangle::getSideLength() const{
-
+    return sideLength;
 }
 
+triangleDirection Triangle::getTriangleDirection() const{
+    return direction;
+}
 // Setters
 void Triangle::setSideLength(double newSideLength){
-
+    sideLength = newSideLength;
 }
 
 // functions
@@ -529,42 +533,122 @@ double Triangle::calculate_perimeter() const {
 /** Triangle (Abstract) end **/
 
 /** TriangleUp begin **/
-void TriangleUp::draw() const{
+TriangleUp::TriangleUp() : Triangle(){
+}
 
+TriangleUp::TriangleUp(double sideLength) : Triangle(sideLength){
+}
+
+TriangleUp::TriangleUp(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
+}
+
+// Copy Constructor
+TriangleUp::TriangleUp(const Triangle &copy) : Triangle(copy){
+}
+
+void TriangleUp::draw() const{
+    glBegin(GL_TRIANGLE_FAN);
+    glColor3f(fill.red, fill.green, fill.blue);
+    glVertex2i(position.x, position.y);
+    double deltaY = sin(60 * M_PI / 180) * (getSideLength() / 2);
+    double deltaX = (getSideLength() / 2);
+    glVertex2i(position.x - deltaX, position.y + deltaY);
+    glVertex2i(position.x + deltaX, position.y + deltaY);
+    glEnd();
 }
 string TriangleUp::getDirection() const{
-
+    return "Up";
 }
 /** TriangleUp end **/
 
 /** TriangleLeft begin **/
-void TriangleLeft::draw() const{
 
+TriangleLeft::TriangleLeft() : Triangle(){
+}
+
+TriangleLeft::TriangleLeft(double sideLength) : Triangle(sideLength){
+}
+
+TriangleLeft::TriangleLeft(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
+}
+
+// Copy Constructor
+TriangleLeft::TriangleLeft(const Triangle &copy) : Triangle(copy){
+}
+
+void TriangleLeft::draw() const{
+    glBegin(GL_TRIANGLE_FAN);
+    glColor3f(fill.red, fill.green, fill.blue);
+    glVertex2i(position.x, position.y);
+    double deltaY = sin(60 * M_PI / 180) * (getSideLength() / 2);
+    double deltaX = (getSideLength() / 2);
+    glVertex2i(position.x + deltaX, position.y - deltaY);
+    glVertex2i(position.x + deltaX, position.y + deltaY);
+    glEnd();
 }
 string TriangleLeft::getDirection() const{
-
+    return "Left";
 }
 
 /** TriangleLeft end **/
 
 /** TriangleDown begin **/
 
-void TriangleDown::draw() const{
+TriangleDown::TriangleDown() : Triangle(){
+}
 
+TriangleDown::TriangleDown(double sideLength) : Triangle(sideLength){
+}
+
+TriangleDown::TriangleDown(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
+}
+
+// Copy Constructor
+TriangleDown::TriangleDown(const Triangle &copy) : Triangle(copy){
+}
+
+void TriangleDown::draw() const{
+    glBegin(GL_TRIANGLE_FAN);
+    glColor3f(fill.red, fill.green, fill.blue);
+    glVertex2i(position.x, position.y);
+    double deltaY = sin(60 * M_PI / 180) * (getSideLength() / 2);
+    double deltaX = (getSideLength() / 2);
+    glVertex2i(position.x - deltaX, position.y - deltaY);
+    glVertex2i(position.x + deltaX, position.y - deltaY);
+    glEnd();
 }
 string TriangleDown::getDirection() const{
-
+    return "Down";
 }
 /** TriangleDown end **/
 
 /** TriangleRight begin **/
 
+TriangleRight::TriangleRight() : Triangle(){
+}
+
+TriangleRight::TriangleRight(double sideLength) : Triangle(sideLength){
+}
+
+TriangleRight::TriangleRight(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
+}
+
+// Copy Constructor
+TriangleRight::TriangleRight(const Triangle &copy) : Triangle(copy){
+}
 
 void TriangleRight::draw() const{
-
+    glBegin(GL_TRIANGLE_FAN);
+    glColor3f(fill.red, fill.green, fill.blue);
+    glVertex2i(position.x, position.y);
+    double deltaY = sin(60 * M_PI / 180) * (getSideLength() / 2);
+    double deltaX = (getSideLength() / 2);
+    glVertex2i(position.x - deltaX, position.y + deltaY);
+    glVertex2i(position.x - deltaX, position.y - deltaY);
+    glEnd();
 }
 string TriangleRight::getDirection() const{
-
+    return "Right";
 }
 
 /** TriangleRight end **/

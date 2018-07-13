@@ -32,3 +32,8 @@ Ideas for future game features:
     a. Rainbow (Guaranteed pickup drop)
     b. Splitter (Splits into 4 random enemies centered at 4 different positions)
     c. Wave (Movement is more random, maybe use sin or cos to determine slight variations in path)
+
+5. Out of game features
+    a. Keep track of high score (simple file I/O) display at end screen
+    b. Keep track of play time, display at end screen (maybe mid game too)
+
