@@ -188,6 +188,7 @@ public:
     // Constructors
     Triangle();
     Triangle(double sideLength);
+    Triangle(double sideLength, color f);
     Triangle(double sideLength, color f, int x, int y);
     // Copy Conctructor
     Triangle(const Triangle &copy);
@@ -213,6 +214,7 @@ public:
     // Constructors
     TriangleUp();
     TriangleUp(double sideLength);
+    TriangleUp(double sideLength, color f);
     TriangleUp(double sideLength, color f, int x, int y);
     // Copy Conctructor
     TriangleUp(const Triangle &copy);
@@ -226,6 +228,7 @@ public:
     // Constructors
     TriangleLeft();
     TriangleLeft(double sideLength);
+    TriangleLeft(double sideLength, color f);
     TriangleLeft(double sideLength, color f, int x, int y);
     // Copy Conctructor
     TriangleLeft(const Triangle &copy);
@@ -238,6 +241,7 @@ class TriangleDown : public Triangle{
 public:
     TriangleDown();
     TriangleDown(double sideLength);
+    TriangleDown(double sideLength, color f);
     TriangleDown(double sideLength, color f, int x, int y);
     // Copy Conctructor
     TriangleDown(const Triangle &copy);
@@ -250,6 +254,7 @@ class TriangleRight : public Triangle{
 public:
     TriangleRight();
     TriangleRight(double sideLength);
+    TriangleRight(double sideLength, color f);
     TriangleRight(double sideLength, color f, int x, int y);
     // Copy Conctructor
     TriangleRight(const Triangle &copy);

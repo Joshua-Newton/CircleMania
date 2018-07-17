@@ -37,3 +37,5 @@ Ideas for future game features:
     a. Keep track of high score (simple file I/O) display at end screen
     b. Keep track of play time, display at end screen (maybe mid game too)
 
+6. Whenever an enemy spawns, create a fast moving pulse to indicate its spawn location,
+   use a hollow circle for this

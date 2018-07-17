@@ -501,6 +501,10 @@ Triangle::Triangle(double sideLength) : Shape(){
     this->sideLength = sideLength;
 }
 
+Triangle::Triangle(double sideLength, color f) : Shape(f) {
+    this->sideLength = sideLength;
+}
+
 Triangle::Triangle(double sideLength, color f, int x, int y) : Shape(f,x,y){
     this->sideLength = sideLength;
 }
@@ -539,6 +543,9 @@ TriangleUp::TriangleUp() : Triangle(){
 TriangleUp::TriangleUp(double sideLength) : Triangle(sideLength){
 }
 
+TriangleUp::TriangleUp(double sideLength, color f) : Triangle(sideLength,f) {
+}
+
 TriangleUp::TriangleUp(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
 }
 
@@ -567,6 +574,9 @@ TriangleLeft::TriangleLeft() : Triangle(){
 }
 
 TriangleLeft::TriangleLeft(double sideLength) : Triangle(sideLength){
+}
+
+TriangleLeft::TriangleLeft(double sideLength, color f) : Triangle(sideLength,f) {
 }
 
 TriangleLeft::TriangleLeft(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
@@ -600,6 +610,9 @@ TriangleDown::TriangleDown() : Triangle(){
 TriangleDown::TriangleDown(double sideLength) : Triangle(sideLength){
 }
 
+TriangleDown::TriangleDown(double sideLength, color f) : Triangle(sideLength,f) {
+}
+
 TriangleDown::TriangleDown(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
 }
 
@@ -628,6 +641,9 @@ TriangleRight::TriangleRight() : Triangle(){
 }
 
 TriangleRight::TriangleRight(double sideLength) : Triangle(sideLength){
+}
+
+TriangleRight::TriangleRight(double sideLength, color f) : Triangle(sideLength, f){
 }
 
 TriangleRight::TriangleRight(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
