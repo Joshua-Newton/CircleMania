@@ -135,6 +135,12 @@ void init() {
     spawnRateSecondsDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     spawnRateSecondsDisplay.set_position(spawnRateDisplay.get_x(),spawnRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
 
+    // Triangles on the settings screen
+
+    playerSizePlusTen.set_position(playerSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH / 2 , playerSizeDisplay.get_y() - SETTING_DISPLAY_MARGIN - SETTINGS_TRIANGLE_LENGTH);
+    playerSizePlusOne.set_position(200 , 200);
+
+    // Put all the menu button in a vector
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(startButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(loadButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(resumeButton));
@@ -145,6 +151,181 @@ void init() {
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(settingsButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(mainMenuButton));
 
+    // Put all the settings displays in a vector
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(playerSizeDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(slowSizeDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(mediumSizeDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(fastSizeDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(pickupSizeDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(playerSpeedDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(slowSpeedDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(mediumSpeedDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(fastSpeedDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(bulletSpeedDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(playerHealthDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(slowHealthDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(mediumHealthDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(fastHealthDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(playerAmmoDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(pickupDropRateDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(spawnRateDisplay));
+    settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(spawnRateSecondsDisplay));
+
+    // Put all the triangles into their respective vectors
+
+    // All triangles
+    settingsTriangles.push_back(make_unique<TriangleUp>(playerSizePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(slowSizePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(mediumSizePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(fastSizePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(pickupSizePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(playerSpeedPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(slowSpeedPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(mediumSpeedPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(fastSpeedPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(bulletSpeedPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(playerHealthPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(slowHealthPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(mediumHealthPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(fastHealthPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(playerAmmoPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(pickupDropRatePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(spawnRatePlusTen));
+    settingsTriangles.push_back(make_unique<TriangleUp>(spawnRateSecondsPlusTen));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(playerSizeMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(slowSizeMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(mediumSizeMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(fastSizeMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(pickupSizeMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(playerSpeedMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(slowSpeedMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(mediumSpeedMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(fastSpeedMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(bulletSpeedMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(playerHealthMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(slowHealthMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(mediumHealthMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(fastHealthMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(playerAmmoMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(pickupDropRateMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(spawnRateMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleLeft>(spawnRateSecondsMinusOne));
+    settingsTriangles.push_back(make_unique<TriangleDown>(playerSizeMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(slowSizeMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(mediumSizeMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(fastSizeMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(pickupSizeMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(playerSpeedMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(slowSpeedMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(mediumSpeedMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(fastSpeedMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(bulletSpeedMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(playerHealthMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(slowHealthMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(mediumHealthMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(fastHealthMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(playerAmmoMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(pickupDropRateMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(spawnRateMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleDown>(spawnRateSecondsMinusTen));
+    settingsTriangles.push_back(make_unique<TriangleRight>(playerSizePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(slowSizePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(mediumSizePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(fastSizePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(pickupSizePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(playerSpeedPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(slowSpeedPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(mediumSpeedPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(fastSpeedPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(bulletSpeedPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(playerHealthPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(slowHealthPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(mediumHealthPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(fastHealthPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(playerAmmoPlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(pickupDropRatePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(spawnRatePlusOne));
+    settingsTriangles.push_back(make_unique<TriangleRight>(spawnRateSecondsPlusOne));
+
+    // TriangleUp
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(playerSizePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(slowSizePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(mediumSizePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(fastSizePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(pickupSizePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(playerSpeedPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(slowSpeedPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(mediumSpeedPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(fastSpeedPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(bulletSpeedPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(playerHealthPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(slowHealthPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(mediumHealthPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(fastHealthPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(playerAmmoPlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(pickupDropRatePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(spawnRatePlusTen));
+    settingsTriangleUps.push_back(make_unique<TriangleUp>(spawnRateSecondsPlusTen));
+
+    // TriangleLeft
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(playerSizeMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(slowSizeMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(mediumSizeMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(fastSizeMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(pickupSizeMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(playerSpeedMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(slowSpeedMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(mediumSpeedMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(fastSpeedMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(bulletSpeedMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(playerHealthMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(slowHealthMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(mediumHealthMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(fastHealthMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(playerAmmoMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(pickupDropRateMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(spawnRateMinusOne));
+    settingsTriangleLefts.push_back(make_unique<TriangleLeft>(spawnRateSecondsMinusOne));
+
+    // TriangleDown
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(playerSizeMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(slowSizeMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(mediumSizeMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(fastSizeMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(pickupSizeMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(playerSpeedMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(slowSpeedMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(mediumSpeedMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(fastSpeedMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(bulletSpeedMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(playerHealthMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(slowHealthMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(mediumHealthMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(fastHealthMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(playerAmmoMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(pickupDropRateMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(spawnRateMinusTen));
+    settingsTriangleDowns.push_back(make_unique<TriangleDown>(spawnRateSecondsMinusTen));
+
+    // TriangleRight
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(playerSizePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(slowSizePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(mediumSizePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(fastSizePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(pickupSizePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(playerSpeedPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(slowSpeedPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(mediumSpeedPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(fastSpeedPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(bulletSpeedPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(playerHealthPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(slowHealthPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(mediumHealthPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(fastHealthPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(playerAmmoPlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(pickupDropRatePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(spawnRatePlusOne));
+    settingsTriangleRights.push_back(make_unique<TriangleRight>(spawnRateSecondsPlusOne));
 
 }
 

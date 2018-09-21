@@ -33,7 +33,7 @@ int NUKE_OUTER_RADIUS_INITIAL = 3*NUKE_INNER_RADIUS_INITIAL;
 int HIT_CIRCLE_SIZE = 5; //Pixels away from inner radius that outer radius will reach
 
 // Triangle length constants
-int SETTINGS_TRIANGLE_LENGTH = 10;
+int SETTINGS_TRIANGLE_LENGTH = 20;
 
 // Spawn rate (in milliseconds)
 int ENEMY_SPAWNRATE = 1000;
@@ -124,6 +124,43 @@ vector<Bullet> bulletsVector;
 vector<unique_ptr<Pickup>> pickups;
 vector<HollowCircle> nukes;
 
+// GLut variable, window dimensions
+GLdouble width, height;
+int wd;
+int WIDTH = 1400;
+int HEIGHT = 800;
+
+// Variables for Button dimensions and/or spacing
+int BUTTON_WIDTH = 200;
+int BUTTON_HEIGHT = 75;
+int BUTTON_X_POSITION =  (WIDTH/2) - (BUTTON_WIDTH/2);
+int SETTING_DISPLAY_WIDTH = 100;
+int SETTING_DISPLAY_HEIGHT = 20;
+int SETTING_DISPLAY_MARGIN = 5;
+int SETTING_TRIANGLE_MARGIN = 2;
+// Variables for Max values for settings
+int PLAYER_RADIUS_MAX = 200;
+int SLOW_RADIUS_MAX = 200;
+int MEDIUM_RADIUS_MAX = 200;
+int FAST_RADIUS_MAX = 200;
+int PICKUP_RADIUS_MAX = 200;
+int SPEED_MAX = 100;
+int HEALTH_MAX = 100;
+int AMMO_MAX = 10000;
+int DROP_RATE_MAX = 100;
+int SPAWN_RATE_MAX = 100000;
+// Variables for Min values for settings
+int PLAYER_RADIUS_MIN = 1;
+int SLOW_RADIUS_MIN = 1;
+int MEDIUM_RADIUS_MIN = 1;
+int FAST_RADIUS_MIN = 1;
+int PICKUP_RADIUS_MIN = 1;
+int SPEED_MIN = 2;
+int HEALTH_MIN = 1;
+int AMMO_MIN = 0;
+int DROP_RATE_MIN = 0;
+int SPAWN_RATE_MIN = 1;
+
 // Player variable
 Player player(PLAYER_HEALTH,PLAYER_SPEED,PLAYER_SPECIALS,PLAYER_CIRCLE);
 
@@ -176,10 +213,11 @@ Rectangle_Shape playerAmmoDisplay;
 Rectangle_Shape pickupDropRateDisplay;
 Rectangle_Shape spawnRateDisplay;
 Rectangle_Shape spawnRateSecondsDisplay;
+vector<unique_ptr<Rectangle_Shape>> settingsDisplaysVector;
 
 // Triangles to be used for settings arrows
-TriangleUp playerSizePlusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
-TriangleDown playerSizeMinusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
+TriangleUp playerSizePlusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR, playerSizeDisplay.get_x() + playerSizeDisplay.get_base()/2 , playerSizeDisplay.get_y() - SETTING_TRIANGLE_MARGIN);
+TriangleDown playerSizeMinusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR, playerSizeDisplay.get_x() + playerSizeDisplay.get_base()/2 , playerSizeDisplay.get_y() + SETTING_TRIANGLE_MARGIN);
 TriangleLeft playerSizeMinusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 TriangleRight playerSizePlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 
@@ -231,7 +269,7 @@ TriangleRight bulletSpeedPlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COL
 TriangleUp playerHealthPlusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 TriangleDown playerHealthMinusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 TriangleLeft playerHealthMinusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
-TriangleRight PlayerHealthPlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
+TriangleRight playerHealthPlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 
 TriangleUp slowHealthPlusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 TriangleDown slowHealthMinusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
@@ -268,6 +306,14 @@ TriangleDown spawnRateSecondsMinusTen(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGL
 TriangleLeft spawnRateSecondsMinusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 TriangleRight spawnRateSecondsPlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGLE_COLOR);
 
+// Vector for all settings triangles
+vector<unique_ptr<Triangle>> settingsTriangles;
+// Vectors for specific types of triangles in the settings screen
+vector<unique_ptr<TriangleUp>> settingsTriangleUps;
+vector<unique_ptr<TriangleDown>> settingsTriangleDowns;
+vector<unique_ptr<TriangleLeft>> settingsTriangleLefts;
+vector<unique_ptr<TriangleRight>> settingsTriangleRights;
+
 //TODO: Add enabling/disabling certain pickups
 //TODO: Add enabling/disabling HUD
 
@@ -276,42 +322,6 @@ TriangleRight spawnRateSecondsPlusOne(SETTINGS_TRIANGLE_LENGTH, SETTINGS_TRIANGL
 int MOUSE_X = 0;
 int MOUSE_Y = 0;
 
-// GLut variable, window dimensions
-GLdouble width, height;
-int wd;
-int WIDTH = 1400;
-int HEIGHT = 800;
-
-// Variables for Button dimensions and/or spacing
-int BUTTON_WIDTH = 200;
-int BUTTON_HEIGHT = 75;
-int BUTTON_X_POSITION =  (WIDTH/2) - (BUTTON_WIDTH/2);
-int SETTING_DISPLAY_WIDTH = 100;
-int SETTING_DISPLAY_HEIGHT = 20;
-int SETTING_DISPLAY_MARGIN = 5;
-
-// Variables for Max values for settings
-int PLAYER_RADIUS_MAX = 200;
-int SLOW_RADIUS_MAX = 200;
-int MEDIUM_RADIUS_MAX = 200;
-int FAST_RADIUS_MAX = 200;
-int PICKUP_RADIUS_MAX = 200;
-int SPEED_MAX = 100;
-int HEALTH_MAX = 100;
-int AMMO_MAX = 10000;
-int DROP_RATE_MAX = 100;
-int SPAWN_RATE_MAX = 100000;
-// Variables for Min values for settings
-int PLAYER_RADIUS_MIN = 1;
-int SLOW_RADIUS_MIN = 1;
-int MEDIUM_RADIUS_MIN = 1;
-int FAST_RADIUS_MIN = 1;
-int PICKUP_RADIUS_MIN = 1;
-int SPEED_MIN = 2;
-int HEALTH_MIN = 1;
-int AMMO_MIN = 0;
-int DROP_RATE_MIN = 0;
-int SPAWN_RATE_MIN = 1;
 /** HARD CODE BELOW FOR TESTING **/
 
 /** HARD CODE ABOVE FOR TESTING **/

@@ -298,6 +298,16 @@ void displaySettings() {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
 
+    //playerSizePlusTen.draw();
+
+    for (int i = 0; i < settingsTriangles.size(); i++){
+
+        settingsTriangles[i]->draw();           //TODO: Does not draw any triangles, why?
+        //settingsTriangleUps[i]->draw();       //TODO: This line breaks the settings menu, exit code 11
+        //settingsTriangleRights[i]->draw();    //TODO: This line breaks the settings menu, exit code 11
+    }
+    //playerSizePlusTen.draw();
+    //playerSizePlusOne.draw();
 }
 
 // display pause screen

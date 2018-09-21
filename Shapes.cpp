@@ -512,6 +512,8 @@ Triangle::Triangle(double sideLength, color f, int x, int y) : Shape(f,x,y){
 // Copy Constructor
 Triangle::Triangle(const Triangle &copy){
     sideLength = copy.sideLength;
+    fill = copy.fill;
+    position = copy.position;
 }
 // Getters
 double Triangle::getSideLength() const{
