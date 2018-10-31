@@ -23,6 +23,7 @@
                                /    |    |     \
                             Left  Right  Down   Up
 */
+
 using namespace std;
 
 struct color {
@@ -126,6 +127,7 @@ public:
     Rectangle_Shape(point p);
     Rectangle_Shape(double b, double h, color f, int x_in, int y_in);
 
+
     // getters
     double get_base() const;
     double get_height() const;
@@ -190,6 +192,7 @@ public:
     Triangle(double sideLength);
     Triangle(double sideLength, color f);
     Triangle(double sideLength, color f, int x, int y);
+    Triangle(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     Triangle(const Triangle &copy);
     // Getters
@@ -216,6 +219,7 @@ public:
     TriangleUp(double sideLength);
     TriangleUp(double sideLength, color f);
     TriangleUp(double sideLength, color f, int x, int y);
+    TriangleUp(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleUp(const Triangle &copy);
 
@@ -230,6 +234,7 @@ public:
     TriangleLeft(double sideLength);
     TriangleLeft(double sideLength, color f);
     TriangleLeft(double sideLength, color f, int x, int y);
+    TriangleLeft(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleLeft(const Triangle &copy);
 
@@ -243,6 +248,7 @@ public:
     TriangleDown(double sideLength);
     TriangleDown(double sideLength, color f);
     TriangleDown(double sideLength, color f, int x, int y);
+    TriangleDown(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleDown(const Triangle &copy);
 
@@ -256,6 +262,7 @@ public:
     TriangleRight(double sideLength);
     TriangleRight(double sideLength, color f);
     TriangleRight(double sideLength, color f, int x, int y);
+    TriangleRight(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleRight(const Triangle &copy);
 

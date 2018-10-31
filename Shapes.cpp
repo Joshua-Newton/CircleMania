@@ -1,8 +1,9 @@
 
 #include "Shapes.h"
 #include "graphics.h"
-#include <math.h>
 
+#include <math.h>
+int CONSTANT = 100;
 //***************************************************************************************************************//
 //                                            Beginning of Shape Class                                           //
 //***************************************************************************************************************//
@@ -508,6 +509,11 @@ Triangle::Triangle(double sideLength, color f) : Shape(f) {
 Triangle::Triangle(double sideLength, color f, int x, int y) : Shape(f,x,y){
     this->sideLength = sideLength;
 }
+Triangle::Triangle(double sideLength, color f, Rectangle_Shape rectangle) : Shape(f){
+    this->sideLength = sideLength;
+    set_position(rectangle.get_position());
+}
+
 
 // Copy Constructor
 Triangle::Triangle(const Triangle &copy){
@@ -551,6 +557,12 @@ TriangleUp::TriangleUp(double sideLength, color f) : Triangle(sideLength,f) {
 TriangleUp::TriangleUp(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
 }
 
+TriangleUp::TriangleUp(double sideLength, color f, Rectangle_Shape rectangle) : Triangle(sideLength,f){
+    // x position is set to the middle of the given rectangle
+    // y position is set to sideLength above the rectangle
+    set_position(rectangle.get_x() + (rectangle.get_base() / 2) , rectangle.get_y() - sideLength);
+}
+
 // Copy Constructor
 TriangleUp::TriangleUp(const Triangle &copy) : Triangle(copy){
 }
@@ -584,6 +596,11 @@ TriangleLeft::TriangleLeft(double sideLength, color f) : Triangle(sideLength,f) 
 TriangleLeft::TriangleLeft(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
 }
 
+TriangleLeft::TriangleLeft(double sideLength, color f, Rectangle_Shape rectangle) : Triangle(sideLength,f){
+    // x position is set to sideLength to the left of the given rectangle
+    // y position is set to middle of the rectangle's height
+    set_position(rectangle.get_x() - sideLength , rectangle.get_y() + (rectangle.get_height() / 2) );
+}
 // Copy Constructor
 TriangleLeft::TriangleLeft(const Triangle &copy) : Triangle(copy){
 }
@@ -616,6 +633,11 @@ TriangleDown::TriangleDown(double sideLength, color f) : Triangle(sideLength,f) 
 }
 
 TriangleDown::TriangleDown(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
+}
+TriangleDown::TriangleDown(double sideLength, color f, Rectangle_Shape rectangle) : Triangle(sideLength,f){
+    // x position is set to middle of the rectangle's width
+    // y position is set to sideLength below the rectangle
+    set_position(rectangle.get_x() + (rectangle.get_base() / 2) , rectangle.get_y() + rectangle.get_height() + sideLength);
 }
 
 // Copy Constructor
@@ -651,6 +673,11 @@ TriangleRight::TriangleRight(double sideLength, color f) : Triangle(sideLength, 
 TriangleRight::TriangleRight(double sideLength, color f, int x, int y) : Triangle(sideLength, f, x, y) {
 }
 
+TriangleRight::TriangleRight(double sideLength, color f, Rectangle_Shape rectangle) : Triangle(sideLength,f){
+    // x position is set to sideLength to the right of the given rectangle
+    // y position is set to middle of the rectangle's height
+    set_position(rectangle.get_x() + rectangle.get_base() + sideLength , rectangle.get_y() + (rectangle.get_height() / 2) );
+}
 // Copy Constructor
 TriangleRight::TriangleRight(const Triangle &copy) : Triangle(copy){
 }

@@ -61,7 +61,7 @@ void init() {
     mainMenuButton.set_position(25,25);
 
     // Rectangles that will be used to display current settings in the settings menu
-
+/*
     playerSizeDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
     playerSizeDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     playerSizeDisplay.set_position(200,200);
@@ -134,11 +134,7 @@ void init() {
     spawnRateSecondsDisplay.set_dimensions(SETTING_DISPLAY_WIDTH,SETTING_DISPLAY_HEIGHT);
     spawnRateSecondsDisplay.set_fill(SETTINGS_DISPLAY_COLOR);
     spawnRateSecondsDisplay.set_position(spawnRateDisplay.get_x(),spawnRateDisplay.get_y() + SETTING_DISPLAY_HEIGHT + SETTING_DISPLAY_MARGIN);
-
-    // Triangles on the settings screen
-
-    playerSizePlusTen.set_position(playerSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH / 2 , playerSizeDisplay.get_y() - SETTING_DISPLAY_MARGIN - SETTINGS_TRIANGLE_LENGTH);
-    playerSizePlusOne.set_position(200 , 200);
+*/
 
     // Put all the menu button in a vector
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(startButton));
