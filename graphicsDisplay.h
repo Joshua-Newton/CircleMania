@@ -39,7 +39,7 @@ void displaySettings() {
     }
     label = "Player Radius";
     glColor3f(1, 1, 1);
-    glRasterPos2i(playerSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, playerSizeDisplay.get_y() + 15);
+    glRasterPos2i(playerSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, playerSizeDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -54,7 +54,7 @@ void displaySettings() {
     }
     label = "Slow Enemy Radius";
     glColor3f(1, 1, 1);
-    glRasterPos2i(slowSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, slowSizeDisplay.get_y() + 15);
+    glRasterPos2i(slowSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, slowSizeDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -69,7 +69,7 @@ void displaySettings() {
     }
     label = "Medium Enemy Radius";
     glColor3f(1, 1, 1);
-    glRasterPos2i(mediumSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, mediumSizeDisplay.get_y() + 15);
+    glRasterPos2i(mediumSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, mediumSizeDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -84,7 +84,7 @@ void displaySettings() {
     }
     label = "Fast Enemy Radius";
     glColor3f(1, 1, 1);
-    glRasterPos2i(fastSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, fastSizeDisplay.get_y() + 15);
+    glRasterPos2i(fastSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, fastSizeDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -99,7 +99,7 @@ void displaySettings() {
     }
     label = "Pickup Radius";
     glColor3f(1, 1, 1);
-    glRasterPos2i(pickupSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, pickupSizeDisplay.get_y() + 15);
+    glRasterPos2i(pickupSizeDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, pickupSizeDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -114,7 +114,7 @@ void displaySettings() {
     }
     label = "Player Speed";
     glColor3f(1, 1, 1);
-    glRasterPos2i(playerSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, playerSpeedDisplay.get_y() + 15);
+    glRasterPos2i(playerSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, playerSpeedDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -129,7 +129,7 @@ void displaySettings() {
     }
     label = "Slow Enemy Speed";
     glColor3f(1, 1, 1);
-    glRasterPos2i(slowSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, slowSpeedDisplay.get_y() + 15);
+    glRasterPos2i(slowSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, slowSpeedDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -144,7 +144,7 @@ void displaySettings() {
     }
     label = "Medium Enemy Speed";
     glColor3f(1, 1, 1);
-    glRasterPos2i(mediumSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, mediumSpeedDisplay.get_y() + 15);
+    glRasterPos2i(mediumSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, mediumSpeedDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -159,7 +159,7 @@ void displaySettings() {
     }
     label = "Fast Enemy Speed";
     glColor3f(1, 1, 1);
-    glRasterPos2i(fastSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, fastSpeedDisplay.get_y() + 15);
+    glRasterPos2i(fastSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, fastSpeedDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -174,7 +174,7 @@ void displaySettings() {
     }
     label = "Bullet Speed";
     glColor3f(1, 1, 1);
-    glRasterPos2i(bulletSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, bulletSpeedDisplay.get_y() + 15);
+    glRasterPos2i(bulletSpeedDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, bulletSpeedDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -189,7 +189,7 @@ void displaySettings() {
     }
     label = "Player Initial Health";
     glColor3f(1, 1, 1);
-    glRasterPos2i(playerHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, playerHealthDisplay.get_y() + 15);
+    glRasterPos2i(playerHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, playerHealthDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -204,7 +204,7 @@ void displaySettings() {
     }
     label = "Slow Enemy Health";
     glColor3f(1, 1, 1);
-    glRasterPos2i(slowHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, slowHealthDisplay.get_y() + 15);
+    glRasterPos2i(slowHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, slowHealthDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -219,7 +219,7 @@ void displaySettings() {
     }
     label = "Medium Enemy Health";
     glColor3f(1, 1, 1);
-    glRasterPos2i(mediumHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, mediumHealthDisplay.get_y() + 15);
+    glRasterPos2i(mediumHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, mediumHealthDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -234,7 +234,7 @@ void displaySettings() {
     }
     label = "Fast Enemy Health";
     glColor3f(1, 1, 1);
-    glRasterPos2i(fastHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, fastHealthDisplay.get_y() + 15);
+    glRasterPos2i(fastHealthDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, fastHealthDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -249,7 +249,7 @@ void displaySettings() {
     }
     label = "Player Initial Ammo";
     glColor3f(1, 1, 1);
-    glRasterPos2i(playerAmmoDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, playerAmmoDisplay.get_y() + 15);
+    glRasterPos2i(playerAmmoDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, playerAmmoDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -264,7 +264,7 @@ void displaySettings() {
     }
     label = "Pickup Drop Rate";
     glColor3f(1, 1, 1);
-    glRasterPos2i(pickupDropRateDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, pickupDropRateDisplay.get_y() + 15);
+    glRasterPos2i(pickupDropRateDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, pickupDropRateDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -279,7 +279,7 @@ void displaySettings() {
     }
     label = "Enemy Spawn Rate (Milliseconds)";
     glColor3f(1, 1, 1);
-    glRasterPos2i(spawnRateDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, spawnRateDisplay.get_y() + 15);
+    glRasterPos2i(spawnRateDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, spawnRateDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }
@@ -294,7 +294,7 @@ void displaySettings() {
     }
     label = "Enemy Spawn Rate (Seconds, Rounded Down)";
     glColor3f(1, 1, 1);
-    glRasterPos2i(spawnRateSecondsDisplay.get_x() + SETTING_DISPLAY_WIDTH + 10, spawnRateSecondsDisplay.get_y() + 15);
+    glRasterPos2i(spawnRateSecondsDisplay.get_x() + SETTING_DISPLAY_WIDTH + SETTING_DISPLAY_LABEL_MARGIN, spawnRateSecondsDisplay.get_y() + 15);
     for (int i = 0; i < label.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_HELVETICA_18, label[i]);
     }

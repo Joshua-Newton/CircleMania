@@ -202,7 +202,8 @@ public:
     void setSideLength(double newSideLength);
 
     // Functions
-  //  virtual void draw()const override;
+    virtual bool is_overlapping(int x, int y) const = 0;
+    //  virtual void draw()const override;
     virtual string getDirection() const = 0;
 
 private:
@@ -222,7 +223,7 @@ public:
     TriangleUp(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleUp(const Triangle &copy);
-
+    bool is_overlapping(int x, int y) const;
     void draw() const;
     string getDirection() const;
 };
@@ -238,6 +239,7 @@ public:
     // Copy Conctructor
     TriangleLeft(const Triangle &copy);
 
+    bool is_overlapping(int x, int y) const;
     void draw() const;
     string getDirection() const;
 };
@@ -251,7 +253,7 @@ public:
     TriangleDown(double sideLength, color f, Rectangle_Shape rectangle);
     // Copy Conctructor
     TriangleDown(const Triangle &copy);
-
+    bool is_overlapping(int x, int y) const;
     void draw() const;
     string getDirection() const;
 };
@@ -266,6 +268,7 @@ public:
     // Copy Conctructor
     TriangleRight(const Triangle &copy);
 
+    bool is_overlapping(int x, int y) const;
     void draw() const;
     string getDirection() const;
 };

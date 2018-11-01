@@ -560,12 +560,29 @@ TriangleUp::TriangleUp(double sideLength, color f, int x, int y) : Triangle(side
 TriangleUp::TriangleUp(double sideLength, color f, Rectangle_Shape rectangle) : Triangle(sideLength,f){
     // x position is set to the middle of the given rectangle
     // y position is set to sideLength above the rectangle
-    set_position(rectangle.get_x() + (rectangle.get_base() / 2) , rectangle.get_y() - sideLength);
+    set_position(rectangle.get_x() + (rectangle.get_base() / 2) , rectangle.get_y() - (sideLength) );
 }
 
 // Copy Constructor
 TriangleUp::TriangleUp(const Triangle &copy) : Triangle(copy){
 }
+
+bool TriangleUp::is_overlapping(int x, int y) const{
+    //TODO: Make this more accurate to the triangle
+    if (x <= get_x() + getSideLength()/2 && x >= get_x() - getSideLength()/2){
+        if (y <= get_y() + getSideLength() && y >= get_y()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
 
 void TriangleUp::draw() const{
     glBegin(GL_TRIANGLE_FAN);
@@ -601,8 +618,26 @@ TriangleLeft::TriangleLeft(double sideLength, color f, Rectangle_Shape rectangle
     // y position is set to middle of the rectangle's height
     set_position(rectangle.get_x() - sideLength , rectangle.get_y() + (rectangle.get_height() / 2) );
 }
+
 // Copy Constructor
 TriangleLeft::TriangleLeft(const Triangle &copy) : Triangle(copy){
+
+}
+
+bool TriangleLeft::is_overlapping(int x, int y) const{
+    //TODO: Make this more accurate to the triangle
+    if (x <= get_x() + getSideLength() && x >= get_x()){
+        if (y <= get_y() + getSideLength()/2 && y >= get_y() - getSideLength()/2) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
 }
 
 void TriangleLeft::draw() const{
@@ -644,6 +679,22 @@ TriangleDown::TriangleDown(double sideLength, color f, Rectangle_Shape rectangle
 TriangleDown::TriangleDown(const Triangle &copy) : Triangle(copy){
 }
 
+bool TriangleDown::is_overlapping(int x, int y) const{
+    //TODO: Make this more accurate to the triangle
+    if (x <= get_x() + getSideLength()/2 && x >= get_x() - getSideLength()/2){
+        if (y >= get_y() - getSideLength() && y <= get_y()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
+}
+
 void TriangleDown::draw() const{
     glBegin(GL_TRIANGLE_FAN);
     glColor3f(fill.red, fill.green, fill.blue);
@@ -680,6 +731,22 @@ TriangleRight::TriangleRight(double sideLength, color f, Rectangle_Shape rectang
 }
 // Copy Constructor
 TriangleRight::TriangleRight(const Triangle &copy) : Triangle(copy){
+}
+
+bool TriangleRight::is_overlapping(int x, int y) const{
+    //TODO: Make this more accurate to the triangle
+    if (x <= get_x() && x >= get_x() - getSideLength()){
+        if (y <= get_y() + getSideLength()/2 && y >= get_y() - getSideLength()/2) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    else{
+        return false;
+    }
+
 }
 
 void TriangleRight::draw() const{
