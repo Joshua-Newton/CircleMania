@@ -596,6 +596,18 @@ void cursor(int x, int y) {
             }
         }
 
+        for (int i = 0; i < settingsTriangles.size(); i++){
+            settingsTriangles[i]->set_fill(HOVER_COLOR);
+
+            if (settingsTriangles[i]->is_overlapping(x,y)){
+                settingsTriangles[i]->set_fill(HOVER_COLOR);
+            }
+            else {
+                settingsTriangles[i]->set_fill(SETTINGS_TRIANGLE_COLOR);
+            }
+
+        }
+
     }
 
 
@@ -697,29 +709,480 @@ void mouse(int button, int state, int x, int y) {
     }
 
     /** Interactions on settings screen **/
-    if (screen == settings){
-         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
-             screen = start;
-             // Apply settings that are necessary
-             SLOW_CIRCLE.set_radius(SLOW_RADIUS);
-             MEDIUM_CIRCLE.set_radius(MEDIUM_RADIUS);
-             FAST_CIRCLE.set_radius(FAST_RADIUS);
-             NUKE_CIRCLE.set_radius(PICKUP_RADIUS);
-             AMMO_CIRCLE.set_radius(PICKUP_RADIUS);
-             SPEED_UP_CIRCLE.set_radius(PICKUP_RADIUS);
-             SHOTGUN_CIRCLE.set_radius(PICKUP_RADIUS);
-             HEALTH_CIRCLE.set_radius(PICKUP_RADIUS);
-             player.setSpeed(PLAYER_SPEED);
-             SLOW_HIT_CIRCLE.setRadiusInner(SLOW_RADIUS);
-             SLOW_HIT_CIRCLE.setRadiusOuter(SLOW_RADIUS + HIT_CIRCLE_SIZE);
-             MEDIUM_HIT_CIRCLE.setRadiusInner(MEDIUM_RADIUS);
-             MEDIUM_HIT_CIRCLE.setRadiusOuter(MEDIUM_RADIUS + HIT_CIRCLE_SIZE);
-             FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
-             FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
-         }
+    if (screen == settings) {
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
+            screen = start;
+            // Apply settings that are necessary
+            SLOW_CIRCLE.set_radius(SLOW_RADIUS);
+            MEDIUM_CIRCLE.set_radius(MEDIUM_RADIUS);
+            FAST_CIRCLE.set_radius(FAST_RADIUS);
+            NUKE_CIRCLE.set_radius(PICKUP_RADIUS);
+            AMMO_CIRCLE.set_radius(PICKUP_RADIUS);
+            SPEED_UP_CIRCLE.set_radius(PICKUP_RADIUS);
+            SHOTGUN_CIRCLE.set_radius(PICKUP_RADIUS);
+            HEALTH_CIRCLE.set_radius(PICKUP_RADIUS);
+            player.setSpeed(PLAYER_SPEED);
+            SLOW_HIT_CIRCLE.setRadiusInner(SLOW_RADIUS);
+            SLOW_HIT_CIRCLE.setRadiusOuter(SLOW_RADIUS + HIT_CIRCLE_SIZE);
+            MEDIUM_HIT_CIRCLE.setRadiusInner(MEDIUM_RADIUS);
+            MEDIUM_HIT_CIRCLE.setRadiusOuter(MEDIUM_RADIUS + HIT_CIRCLE_SIZE);
+            FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
+            FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
+        }
+
+        // Player Size
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSizePlusTen.is_overlapping(x, y)) {
+            PLAYER_RADIUS += 10;
+            if (PLAYER_RADIUS > PLAYER_RADIUS_MAX){
+                PLAYER_RADIUS = PLAYER_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSizeMinusTen.is_overlapping(x, y)) {
+            PLAYER_RADIUS -= 10;
+            if (PLAYER_RADIUS < PLAYER_RADIUS_MIN){
+                PLAYER_RADIUS = PLAYER_RADIUS_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSizePlusOne.is_overlapping(x, y)) {
+            PLAYER_RADIUS += 1;
+            if (PLAYER_RADIUS > PLAYER_RADIUS_MAX){
+                PLAYER_RADIUS = PLAYER_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSizeMinusOne.is_overlapping(x, y)) {
+            PLAYER_RADIUS -= 1;
+            if (PLAYER_RADIUS < PLAYER_RADIUS_MIN){
+                PLAYER_RADIUS = PLAYER_RADIUS_MIN;
+            }
+        }
+        // Slow Size
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSizePlusTen.is_overlapping(x, y)) {
+            SLOW_RADIUS += 10;
+            if (SLOW_RADIUS > SLOW_RADIUS_MAX){
+                SLOW_RADIUS = SLOW_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSizeMinusTen.is_overlapping(x, y)) {
+            SLOW_RADIUS -= 10;
+            if (SLOW_RADIUS < SLOW_RADIUS_MIN){
+                SLOW_RADIUS = SLOW_RADIUS_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSizePlusOne.is_overlapping(x, y)) {
+            SLOW_RADIUS += 1;
+            if (SLOW_RADIUS > SLOW_RADIUS_MAX){
+                SLOW_RADIUS = SLOW_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSizeMinusOne.is_overlapping(x, y)) {
+            SLOW_RADIUS -= 1;
+            if (SLOW_RADIUS < SLOW_RADIUS_MIN){
+                SLOW_RADIUS = SLOW_RADIUS_MIN;
+            }
+        }
+        // Medium Size
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSizePlusTen.is_overlapping(x, y)) {
+            MEDIUM_RADIUS += 10;
+            if (MEDIUM_RADIUS > MEDIUM_RADIUS_MAX){
+                MEDIUM_RADIUS = MEDIUM_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSizeMinusTen.is_overlapping(x, y)) {
+            MEDIUM_RADIUS -= 10;
+            if (MEDIUM_RADIUS < MEDIUM_RADIUS_MIN){
+                MEDIUM_RADIUS = MEDIUM_RADIUS_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSizePlusOne.is_overlapping(x, y)) {
+            MEDIUM_RADIUS += 1;
+            if (MEDIUM_RADIUS > MEDIUM_RADIUS_MAX){
+                MEDIUM_RADIUS = MEDIUM_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSizeMinusOne.is_overlapping(x, y)) {
+            MEDIUM_RADIUS -= 1;
+            if (MEDIUM_RADIUS < MEDIUM_RADIUS_MIN){
+                MEDIUM_RADIUS = MEDIUM_RADIUS_MIN;
+            }
+        }
+        // Fast Size
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSizePlusTen.is_overlapping(x, y)) {
+            FAST_RADIUS += 10;
+            if (FAST_RADIUS > FAST_RADIUS_MAX){
+                FAST_RADIUS = FAST_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSizeMinusTen.is_overlapping(x, y)) {
+            FAST_RADIUS -= 10;
+            if (FAST_RADIUS < FAST_RADIUS_MIN){
+                FAST_RADIUS = FAST_RADIUS_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSizePlusOne.is_overlapping(x, y)) {
+            FAST_RADIUS += 1;
+            if (FAST_RADIUS > FAST_RADIUS_MAX){
+                FAST_RADIUS = FAST_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSizeMinusOne.is_overlapping(x, y)) {
+            FAST_RADIUS -= 1;
+            if (FAST_RADIUS < FAST_RADIUS_MIN){
+                FAST_RADIUS = FAST_RADIUS_MIN;
+            }
+        }
+        // Pickup Size
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupSizePlusTen.is_overlapping(x, y)) {
+            PICKUP_RADIUS += 10;
+            if (PICKUP_RADIUS > PICKUP_RADIUS_MAX){
+                PICKUP_RADIUS = PICKUP_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupSizeMinusTen.is_overlapping(x, y)) {
+            PICKUP_RADIUS -= 10;
+            if (PICKUP_RADIUS < PICKUP_RADIUS_MIN){
+                PICKUP_RADIUS = PICKUP_RADIUS_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupSizePlusOne.is_overlapping(x, y)) {
+            PICKUP_RADIUS += 1;
+            if (PICKUP_RADIUS > PICKUP_RADIUS_MAX){
+                PICKUP_RADIUS = PICKUP_RADIUS_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupSizeMinusOne.is_overlapping(x, y)) {
+            PICKUP_RADIUS -= 1;
+            if (PICKUP_RADIUS < PICKUP_RADIUS_MIN){
+                PICKUP_RADIUS = PICKUP_RADIUS_MIN;
+            }
+        }
+        // Player Speed
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSpeedPlusTen.is_overlapping(x, y)) {
+            PLAYER_SPEED += 10;
+            if (PLAYER_SPEED > SPEED_MAX){
+                PLAYER_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSpeedMinusTen.is_overlapping(x, y)) {
+            PLAYER_SPEED -= 10;
+            if (PLAYER_SPEED < SPEED_MIN){
+                PLAYER_SPEED = SPEED_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSpeedPlusOne.is_overlapping(x, y)) {
+            PLAYER_SPEED += 1;
+            if (PLAYER_SPEED > SPEED_MAX){
+                PLAYER_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSpeedMinusOne.is_overlapping(x, y)) {
+            PLAYER_SPEED -= 1;
+            if (PLAYER_SPEED < SPEED_MIN){
+                PLAYER_SPEED = SPEED_MIN;
+            }
+        }
+        // Slow Speed
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSpeedPlusTen.is_overlapping(x, y)) {
+            SLOW_SPEED += 10;
+            if (SLOW_SPEED > SPEED_MAX){
+                SLOW_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSpeedMinusTen.is_overlapping(x, y)) {
+            SLOW_SPEED -= 10;
+            if (SLOW_SPEED < SPEED_MIN){
+                SLOW_SPEED = SPEED_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSpeedPlusOne.is_overlapping(x, y)) {
+            SLOW_SPEED += 1;
+            if (SLOW_SPEED > SPEED_MAX){
+                SLOW_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowSpeedMinusOne.is_overlapping(x, y)) {
+            SLOW_SPEED -= 1;
+            if (SLOW_SPEED < SPEED_MIN){
+                SLOW_SPEED = SPEED_MIN;
+            }
+        }
+        // Medium Speed
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSpeedPlusTen.is_overlapping(x, y)) {
+            MEDIUM_SPEED += 10;
+            if (MEDIUM_SPEED > SPEED_MAX){
+                MEDIUM_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSpeedMinusTen.is_overlapping(x, y)) {
+            MEDIUM_SPEED -= 10;
+            if (MEDIUM_SPEED < SPEED_MIN){
+                MEDIUM_SPEED = SPEED_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSpeedPlusOne.is_overlapping(x, y)) {
+            MEDIUM_SPEED += 1;
+            if (MEDIUM_SPEED > SPEED_MAX){
+                MEDIUM_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumSpeedMinusOne.is_overlapping(x, y)) {
+            MEDIUM_SPEED -= 1;
+            if (MEDIUM_SPEED < SPEED_MIN){
+                MEDIUM_SPEED = SPEED_MIN;
+            }
+        }
+        // Fast Speed
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSpeedPlusTen.is_overlapping(x, y)) {
+            FAST_SPEED += 10;
+            if (FAST_SPEED > SPEED_MAX){
+                FAST_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSpeedMinusTen.is_overlapping(x, y)) {
+            FAST_SPEED -= 10;
+            if (FAST_SPEED < SPEED_MIN){
+                FAST_SPEED = SPEED_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSpeedPlusOne.is_overlapping(x, y)) {
+            FAST_SPEED += 1;
+            if (FAST_SPEED > SPEED_MAX){
+                FAST_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastSpeedMinusOne.is_overlapping(x, y)) {
+            FAST_SPEED -= 1;
+            if (FAST_SPEED < SPEED_MIN){
+                FAST_SPEED = SPEED_MIN;
+            }
+        }
+        // Bullet Speed
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && bulletSpeedPlusTen.is_overlapping(x, y)) {
+            BULLET_SPEED += 10;
+            if (BULLET_SPEED > SPEED_MAX){
+                BULLET_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && bulletSpeedMinusTen.is_overlapping(x, y)) {
+            BULLET_SPEED -= 10;
+            if (BULLET_SPEED < SPEED_MIN){
+                BULLET_SPEED = SPEED_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && bulletSpeedPlusOne.is_overlapping(x, y)) {
+            BULLET_SPEED += 1;
+            if (BULLET_SPEED > SPEED_MAX){
+                BULLET_SPEED = SPEED_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && bulletSpeedMinusOne.is_overlapping(x, y)) {
+            BULLET_SPEED -= 1;
+            if (BULLET_SPEED < SPEED_MIN){
+                BULLET_SPEED = SPEED_MIN;
+            }
+        }
+        // Player Health
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerHealthPlusTen.is_overlapping(x, y)) {
+            PLAYER_HEALTH += 10;
+            if (PLAYER_HEALTH > HEALTH_MAX){
+                PLAYER_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerHealthMinusTen.is_overlapping(x, y)) {
+            PLAYER_HEALTH -= 10;
+            if (PLAYER_HEALTH < HEALTH_MIN){
+                PLAYER_HEALTH = HEALTH_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerHealthPlusOne.is_overlapping(x, y)) {
+            PLAYER_HEALTH += 1;
+            if (PLAYER_HEALTH > HEALTH_MAX){
+                PLAYER_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerHealthMinusOne.is_overlapping(x, y)) {
+            PLAYER_HEALTH -= 1;
+            if (PLAYER_HEALTH < HEALTH_MIN){
+                PLAYER_HEALTH = HEALTH_MIN;
+            }
+        }
+        // Slow Health
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowHealthPlusTen.is_overlapping(x, y)) {
+            SLOW_HEALTH += 10;
+            if (SLOW_HEALTH > HEALTH_MAX){
+                SLOW_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowHealthMinusTen.is_overlapping(x, y)) {
+            SLOW_HEALTH -= 10;
+            if (SLOW_HEALTH < HEALTH_MIN){
+                SLOW_HEALTH = HEALTH_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowHealthPlusOne.is_overlapping(x, y)) {
+            SLOW_HEALTH += 1;
+            if (SLOW_HEALTH > HEALTH_MAX){
+                SLOW_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && slowHealthMinusOne.is_overlapping(x, y)) {
+            SLOW_HEALTH -= 1;
+            if (SLOW_HEALTH < HEALTH_MIN){
+                SLOW_HEALTH = HEALTH_MIN;
+            }
+        }
+        // Medium Health
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumHealthPlusTen.is_overlapping(x, y)) {
+            MEDIUM_HEALTH += 10;
+            if (MEDIUM_HEALTH > HEALTH_MAX){
+                MEDIUM_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumHealthMinusTen.is_overlapping(x, y)) {
+            MEDIUM_HEALTH -= 10;
+            if (MEDIUM_HEALTH < HEALTH_MIN){
+                MEDIUM_HEALTH = HEALTH_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumHealthPlusOne.is_overlapping(x, y)) {
+            MEDIUM_HEALTH += 1;
+            if (MEDIUM_HEALTH > HEALTH_MAX){
+                MEDIUM_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mediumHealthMinusOne.is_overlapping(x, y)) {
+            MEDIUM_HEALTH -= 1;
+            if (MEDIUM_HEALTH < HEALTH_MIN){
+                MEDIUM_HEALTH = HEALTH_MIN;
+            }
+        }
+        // Fast Health
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastHealthPlusTen.is_overlapping(x, y)) {
+            FAST_HEALTH += 10;
+            if (FAST_HEALTH > HEALTH_MAX){
+                FAST_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastHealthMinusTen.is_overlapping(x, y)) {
+            FAST_HEALTH -= 10;
+            if (FAST_HEALTH < HEALTH_MIN){
+                FAST_HEALTH = HEALTH_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastHealthPlusOne.is_overlapping(x, y)) {
+            FAST_HEALTH += 1;
+            if (FAST_HEALTH > HEALTH_MAX){
+                FAST_HEALTH = HEALTH_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && fastHealthMinusOne.is_overlapping(x, y)) {
+            FAST_HEALTH -= 1;
+            if (FAST_HEALTH < HEALTH_MIN){
+                FAST_HEALTH = HEALTH_MIN;
+            }
+        }
+        // Player Ammo
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerAmmoPlusTen.is_overlapping(x, y)) {
+            PLAYER_SPECIALS += 10;
+            if (PLAYER_SPECIALS > AMMO_MAX){
+                PLAYER_SPECIALS = AMMO_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerAmmoMinusTen.is_overlapping(x, y)) {
+            PLAYER_SPECIALS -= 10;
+            if (PLAYER_SPECIALS < AMMO_MIN){
+                PLAYER_SPECIALS = AMMO_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerAmmoPlusOne.is_overlapping(x, y)) {
+            PLAYER_SPECIALS += 1;
+            if (PLAYER_SPECIALS > AMMO_MAX){
+                PLAYER_SPECIALS = AMMO_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerAmmoMinusOne.is_overlapping(x, y)) {
+            PLAYER_SPECIALS -= 1;
+            if (PLAYER_SPECIALS < AMMO_MIN){
+                PLAYER_SPECIALS = AMMO_MIN;
+            }
+        }
+        // Pickup Drop Rate
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupDropRatePlusTen.is_overlapping(x, y)) {
+            DROP_RATE += 10;
+            if (DROP_RATE > DROP_RATE_MAX){
+                DROP_RATE = DROP_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupDropRateMinusTen.is_overlapping(x, y)) {
+            DROP_RATE -= 10;
+            if (DROP_RATE < DROP_RATE_MIN){
+                DROP_RATE = DROP_RATE_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupDropRatePlusOne.is_overlapping(x, y)) {
+            DROP_RATE += 1;
+            if (DROP_RATE > DROP_RATE_MAX){
+                DROP_RATE = DROP_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && pickupDropRateMinusOne.is_overlapping(x, y)) {
+            DROP_RATE -= 1;
+            if (DROP_RATE < DROP_RATE_MIN){
+                DROP_RATE = DROP_RATE_MIN;
+            }
+        }
+        // Spawn Rate (milliseconds
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRatePlusTen.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE += 10;
+            if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateMinusTen.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE -= 10;
+            if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRatePlusOne.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE += 1;
+            if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateMinusOne.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE -= 1;
+            if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+            }
+        }
+        // Spawn Rate (seconds)
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateSecondsPlusTen.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE += 10000;
+            if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateSecondsMinusTen.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE -= 10000;
+            if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateSecondsPlusOne.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE += 1000;
+            if (ENEMY_SPAWNRATE > SPAWN_RATE_MAX){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MAX;
+            }
+        }
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && spawnRateSecondsMinusOne.is_overlapping(x, y)) {
+            ENEMY_SPAWNRATE -= 1000;
+            if (ENEMY_SPAWNRATE < SPAWN_RATE_MIN){
+                ENEMY_SPAWNRATE = SPAWN_RATE_MIN;
+            }
+        }
+
 
     }
-
     /** Interactions on game over screen **/
     if (screen == endGame) {
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && startButton.is_overlapping(x, y)) {
