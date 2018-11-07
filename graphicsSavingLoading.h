@@ -229,7 +229,7 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
         } else if (type == "ShotgunType") {
             gameObjects >> lifetime >> pickupString >> radius >> r >> g >> b >> x >> y >> shotgunTime;
             pickups.push_back(
-                    make_unique<Ammo>(Ammo((Circle(radius, {r, g, b})), pickupString, lifetime, shotgunTime, x, y)));
+                    make_unique<Shotgun>(Shotgun((Circle(radius, {r, g, b})), pickupString, lifetime, shotgunTime, x, y)));
         } else if (type == "NukeType") {
             gameObjects >> lifetime >> pickupString >> radius >> r >> g >> b >> x >> y;
             pickups.push_back(make_unique<Nuke>(Nuke((Circle(radius, {r,g,b})), pickupString, lifetime, x, y)));
