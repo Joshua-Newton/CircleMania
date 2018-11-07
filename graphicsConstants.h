@@ -12,6 +12,11 @@
 #include "Bullet.h"
 
 /***************** DEFINING VARIABLES AND CONSTANTS ******************/
+// File constants
+string DEFAULT_SETTINGS_FILE = "DefaultSettings.txt";
+string EASY_SETTINGS_FILE = "EasySettings.txt";
+string NORMAL_SETTINGS_FILE = "NormalSettings.txt";
+string HARD_SETTINGS_FILE = "HardSettings.txt";
 // Speed constants
 // NOTE: DO NOT REDUCE SPEEDS BELOW 2, OR THE MOVE CALCULATION WILL "BREAK"
 int SLOW_SPEED = 3;
