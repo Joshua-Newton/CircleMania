@@ -90,7 +90,7 @@ public:
     Circle(double r);
     Circle(double r, color f);
     Circle(color f);
-    Circle(const Circle &c);
+    Circle(const Circle &c); // Copy Constructor
     Circle(double r, color f, point p);
     // getter
     double get_radius() const;

@@ -22,6 +22,11 @@ Bullet::Bullet(Circle cir, int spd, int dmg){
     circle = cir;
 }
 
+Bullet::Bullet(int spd, int dmg, int xIncrement, int yIncrement, Circle cir) : Bullet(cir, spd, dmg) {
+    setIncrementX(xIncrement);
+    setIncrementY(yIncrement);
+}
+
 Bullet::Bullet(Circle cir, int spd, int dmg, int xPosition, int yPosition){
     speed = spd;
     damage = dmg;
@@ -36,6 +41,12 @@ Bullet::Bullet(int xPosition, int yPosition){
     cir.set_position(xPosition, yPosition);
     circle = cir;
 }
+
+Bullet::Bullet(Circle cir, int spd, int dmg, int xPosition, int yPosition, int xIncrement, int yIncrement): Bullet( cir, spd, dmg, xPosition, yPosition){
+    setIncrementX(xIncrement);
+    setIncrementY(yIncrement);
+}
+
 
 /*
  * Destructor

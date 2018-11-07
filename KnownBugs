@@ -1,19 +1,15 @@
 Known bugs in the game:
 
-1.  When loading a game, bullets are not properly loaded. It appears that the bullets vector is cleared directly after
-    loading them into the game. Investigate further.
+1.  Player moves faster diagonally. NOTE: can fix this in graphicsTimers.h where movement is handled
 
-2.  Player moves faster diagonally. NOTE: can fix this in graphicsTimers.h where movement is handled
-
-3.  When first shooting, the target position (The current mouse position) sometimes does not register correctly. This
+2.  When first shooting, the target position (The current mouse position) sometimes does not register correctly. This
     is fixed after moving the mouse, but returns if the mouse button is released, moved to another position, then clicked
     without moving the mouse.
 
-4.  When loading a game, pickups are not loaded. It appears that the pickup vector is never cleared, and the loading function
-    does not change the vector at all.
+3.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
+    as you move the mouse
 
-5.  When loading a game, sometimes bullets that do load do not act properly. Once observed them move slowly to the right.
-    Another time, observed no movement at all.
+4.  When loading a game, shotguns do not always work. Typically, loading a game after exiting the program and re-running
+    will break the shotgun. However, loading without exiting programs shows expected behaviour.
 
-6.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
-    as you move the mouse    
+       

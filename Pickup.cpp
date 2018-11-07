@@ -24,6 +24,14 @@ Pickup::Pickup(Circle circle, string pickupString, int pickupLifeTime) {
     setType(AmmoType);
 }
 
+Pickup::Pickup(const Pickup &pickup){
+    setCircle(pickup.getCircle());
+    setString(pickup.getString());
+    setLifeTime(pickup.getLifeTime());
+    setType(pickup.getType());
+}
+
+
 // Getters
 Circle Pickup::getCircle() const{
     return circle;
@@ -40,13 +48,13 @@ int Pickup::getLifeTime() const{
 color Pickup::getColor() const{
     return circle.get_fill();
 }
-int Pickup::getRed() const{
+double Pickup::getRed() const{
     return circle.get_fill().red;
 }
-int Pickup::getGreen() const{
+double Pickup::getGreen() const{
     return circle.get_fill().green;
 }
-int Pickup::getBlue() const{
+double Pickup::getBlue() const{
     return circle.get_fill().blue;
 }
 int Pickup::getRadius() const{
@@ -128,6 +136,10 @@ SpeedIncrease::SpeedIncrease(Circle circle, string pickupString, int pickupLifeT
     setPosition(posX,posY);
     setType(SpeedType);
 }
+SpeedIncrease::SpeedIncrease(const  SpeedIncrease &speed) : Pickup(speed){
+    setSpeedBuff(speed.getSpeedBuff());
+    setSpeedTime(speed.getSpeedTime());
+}
 
 // Getters
 int SpeedIncrease::getSpeedBuff() const{
@@ -161,7 +173,7 @@ void SpeedIncrease::pickup(Player &player) {
 }
 
 void SpeedIncrease::save(ofstream &outs){
-    outs << this->getType() << endl
+    outs << this->getTypeString() << endl
          << this->getLifeTime() << endl
          << this->getString() << endl
          << this->getRadius() << endl
@@ -196,6 +208,10 @@ Ammo::Ammo(Circle circle, string pickupString, int pickupLifeTime, int ammo, int
     setPosition(posX,posY);
     setType(AmmoType);
 }
+Ammo::Ammo(const Ammo &ammo) : Pickup(ammo){
+    setAmmoRegained(ammo.getAmmoRegained());
+}
+
 
 // Getters
 int Ammo::getAmmoRegained() const{
@@ -213,7 +229,7 @@ void Ammo::pickup(Player &player) {
 }
 
 void Ammo::save(ofstream &outs){
-    outs << this->getType() << endl
+    outs << this->getTypeString() << endl
          << this->getLifeTime() << endl
          << this->getString() << endl
          << this->getRadius() << endl
@@ -246,6 +262,10 @@ Health::Health(Circle circle, string pickupString, int pickupLifeTime, int healt
     setPosition(posX,posY);
     setType(HealthType);
 }
+Health::Health(const Health &health) : Pickup(health){
+    setHealthRegained(health.getHealthRegained());
+}
+
 
 // Getters
 int Health::getHealthRegained() const{
@@ -263,7 +283,7 @@ void Health::pickup(Player &player) {
 }
 
 void Health::save(ofstream &outs){
-    outs << this->getType() << endl
+    outs << this->getTypeString() << endl
          << this->getLifeTime() << endl
          << this->getString() << endl
          << this->getRadius() << endl
@@ -302,6 +322,10 @@ Shotgun::Shotgun(Circle circle, string pickupString, int pickupLifeTime, int tim
     setPosition(posX,posY);
     setType(ShotgunType);
 }
+Shotgun::Shotgun(const Shotgun &shotgun) : Pickup(shotgun){
+    setTimeLength(shotgun.getTimeLength());
+}
+
 
 // Getters
 int Shotgun::getTimeLength() const{
@@ -326,7 +350,7 @@ void Shotgun::pickup(Player &player) {
 }
 
 void Shotgun::save(ofstream &outs){
-    outs << this->getType() << endl
+    outs << this->getTypeString() << endl
          << this->getLifeTime() << endl
          << this->getString() << endl
          << this->getRadius() << endl
@@ -361,13 +385,27 @@ Nuke::Nuke(Circle circle, string pickupString, int pickupLifeTime, int x, int y)
     setType(NukeType);
     setPosition(x,y);
 }
+Nuke::Nuke(const Nuke &nuke) : Pickup(nuke){
+
+}
+
 
 // Overridden methods
 void Nuke::pickup(Player &player) {
     // This pickup does nothing to the player, and therefore this method will do nothing.
+
 }
 void Nuke::save(ofstream &outs) {
     // TODO: complete the save function here
+    outs << this->getTypeString() << endl
+         << this->getLifeTime() << endl
+         << this->getString() << endl
+         << this->getRadius() << endl
+         << this->getRed() << endl
+         << this->getGreen() << endl
+         << this->getBlue() << endl
+         << this->getX() << endl
+         << this->getY() << endl;
 }
 
 /******************* End of Child Class (Nuke) *******************/

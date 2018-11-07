@@ -38,15 +38,16 @@ public:
      * E: Creates a new Pickup with the given circle and string
      */
     Pickup(Circle circle, string pickupString, int pickupLifeTime);
+    Pickup(const Pickup &pickup);
 
     // Getters
     Circle getCircle() const;
     string getString() const;
     int getLifeTime() const;
     color getColor() const;
-    int getRed() const;
-    int getGreen() const;
-    int getBlue() const;
+    double getRed() const;
+    double getGreen() const;
+    double getBlue() const;
     int getRadius() const;
     point getPosition() const;
     int getX() const;
@@ -94,7 +95,7 @@ public:
      *  E: Creates a SpeedIncrease Pickup witht eh given circle, string, and speedBuff integer
      */
     SpeedIncrease(Circle circle, string pickupString, int pickupLifeTime, int speedBuff, int newLifetime, int posX, int posY);
-
+    SpeedIncrease(const SpeedIncrease &speed);
     // Getters
     int getSpeedBuff() const;
     int getSpeedTime() const;
@@ -132,7 +133,7 @@ public:
      *  E: Creates a Ammo Pickup with the given circle, string, and ammo integer
      */
     Ammo(Circle circle, string pickupString, int pickupLifeTime, int ammo, int posX, int posY);
-
+    Ammo(const Ammo &ammo);
     // Getters
     int getAmmoRegained() const;
 
@@ -169,7 +170,7 @@ public:
      *  E: Creates a Health Pickup with the given circle, string, and health integer
      */
     Health(Circle circle, string pickupString, int pickupLifeTime, int health, int posX, int posY);
-
+    Health(const Health &health);
     // Getters
     int getHealthRegained() const;
 
@@ -201,7 +202,7 @@ public:
      *  E: Creates a Health Pickup with the given circle, string, and health integer
      */
     Shotgun(Circle circle, string pickupString, int pickupLifeTime, int timeLength, int posX, int posY);
-
+    Shotgun(const Shotgun &shotgun);
     // Getters
     int getTimeLength() const;
 
@@ -225,6 +226,7 @@ public:
     Nuke();
     Nuke(Circle circle, string pickupString, int pickupLifeTime);
     Nuke(Circle circle, string pickupString, int pickupLifeTime, int x, int y);
+    Nuke(const Nuke &nuke);
     // Overridden methods
     void pickup(Player &player) override;
     void save(ofstream &outs) override;

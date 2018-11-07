@@ -22,8 +22,11 @@ public:
      */
     Bullet();
     Bullet(Circle cir, int spd, int dmg);
+    Bullet(int spd, int dmg, int xIncrement, int yIncrement, Circle cir);
     Bullet(Circle cir, int spd, int dmg, int xPosition, int yPosition);
     Bullet(int xPosition, int yPosition);
+    Bullet(Circle cir, int spd, int dmg, int xPosition, int yPosition, int xIncrement, int yIncrement);
+
     /*
      * Destructor
      * Requires: nothing

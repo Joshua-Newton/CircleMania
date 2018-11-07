@@ -20,6 +20,25 @@ void saving(const Player &players, const vector<unique_ptr<Enemy>> &enemies, con
     ofstream gameObjects(fileName); // Open file
 
     if (gameObjects) {
+        // Save the current Settings
+        gameObjects << PLAYER_RADIUS << endl
+                    << SLOW_RADIUS << endl
+                    << MEDIUM_RADIUS << endl
+                    << PICKUP_RADIUS << endl
+                    << PLAYER_SPEED << endl
+                    << SLOW_SPEED << endl
+                    << MEDIUM_SPEED << endl
+                    << FAST_SPEED << endl
+                    << BULLET_SPEED << endl
+                    << PLAYER_HEALTH << endl
+                    << SLOW_HEALTH << endl
+                    << MEDIUM_HEALTH << endl
+                    << FAST_HEALTH << endl
+                    << PLAYER_SPECIALS << endl
+                    << DROP_RATE << endl
+                    << ENEMY_SPAWNRATE << endl;
+
+        // Save the numbers for each type of entity
         gameObjects << enemies.size() << endl;
         gameObjects << bullets.size() << endl;
         gameObjects << pickups.size() << endl;
@@ -70,7 +89,9 @@ void saving(const Player &players, const vector<unique_ptr<Enemy>> &enemies, con
                         << b.getX() << endl
                         << b.getY() << endl
                         << b.getSpeed() << endl
-                        << b.getDamage() << endl;
+                        << b.getDamage() << endl
+                        << b.getIncrementX() << endl
+                        << b.getIncrementY() << endl;
 
         }
         // for every pickup, save their stats
@@ -87,6 +108,24 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
              vector<unique_ptr<Pickup>> &pickups, string fileName) {
 
     ifstream gameObjects(fileName); // Open file
+
+    // load the custom settings
+    gameObjects >> PLAYER_RADIUS
+                >> SLOW_RADIUS
+                >> MEDIUM_RADIUS
+                >> PICKUP_RADIUS
+                >> PLAYER_SPEED
+                >> SLOW_SPEED
+                >> MEDIUM_SPEED
+                >> FAST_SPEED
+                >> BULLET_SPEED
+                >> PLAYER_HEALTH
+                >> SLOW_HEALTH
+                >> MEDIUM_HEALTH
+                >> FAST_HEALTH
+                >> PLAYER_SPECIALS
+                >> DROP_RATE
+                >> ENEMY_SPAWNRATE;
 
     int numEnemies;
     int numBullets;
@@ -142,11 +181,11 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
         circle.set_position(x, y);
 
         if (speed == SLOW_SPEED) {
-            enemies.push_back(make_unique<Slow>(Slow(health, speed, score, circle)));
+            enemies.push_back(make_unique<Slow>(Slow(health, speed, score, circle, SLOW_HIT_CIRCLE)));
         } else if (speed == MEDIUM_SPEED) {
-            enemies.push_back(make_unique<Medium>(Medium(health, speed, score, circle)));
+            enemies.push_back(make_unique<Medium>(Medium(health, speed, score, circle, MEDIUM_HIT_CIRCLE)));
         } else if (speed == FAST_SPEED) {
-            enemies.push_back(make_unique<Fast>(Fast(health, speed, score, circle)));
+            enemies.push_back(make_unique<Fast>(Fast(health, speed, score, circle, FAST_HIT_CIRCLE)));
         }
     }
     // Load the bullets
@@ -155,11 +194,11 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
         int damage;
         double radius;
         double r, g, b;
-        int x, y;
-        gameObjects >> radius >> r >> g >> b >> x >> y >> speed >> damage;
+        int x, y, xInc, yInc;
+        gameObjects >> radius >> r >> g >> b >> x >> y >> speed >> damage >> xInc >> yInc;
         Circle circle = Circle(radius, {r, g, b});
         circle.set_position(x, y);
-        bullets.push_back(Bullet(circle, speed, damage));
+        bullets.push_back(Bullet(speed, damage, xInc, yInc, circle));
     }
 
     // Load the pickups
@@ -191,7 +230,11 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
             gameObjects >> lifetime >> pickupString >> radius >> r >> g >> b >> x >> y >> shotgunTime;
             pickups.push_back(
                     make_unique<Ammo>(Ammo((Circle(radius, {r, g, b})), pickupString, lifetime, shotgunTime, x, y)));
+        } else if (type == "NukeType") {
+            gameObjects >> lifetime >> pickupString >> radius >> r >> g >> b >> x >> y;
+            pickups.push_back(make_unique<Nuke>(Nuke((Circle(radius, {r,g,b})), pickupString, lifetime, x, y)));
         }
+
     }
 
     gameObjects.close();

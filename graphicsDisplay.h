@@ -28,7 +28,6 @@ void displaySettings() {
 
     string number;
     string label;
-
     playerSizeDisplay.draw();
 
     number = to_string(PLAYER_RADIUS);
