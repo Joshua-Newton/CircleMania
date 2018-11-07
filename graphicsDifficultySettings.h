@@ -10,6 +10,30 @@
 void saveDefaultSettings(){
     //TODO: fill out this function to be used at program execution
     //TODO: (this will make sure the default settings are consistent)
+    // Open file
+    ofstream settingsFile(DEFAULT_SETTINGS_FILE);
+
+    if (settingsFile){
+        settingsFile << PLAYER_RADIUS << endl
+                     << SLOW_RADIUS << endl
+                     << MEDIUM_RADIUS << endl
+                     << FAST_RADIUS << endl
+                     << PICKUP_RADIUS << endl
+                     << PLAYER_SPEED << endl
+                     << SLOW_SPEED << endl
+                     << MEDIUM_SPEED << endl
+                     << FAST_SPEED << endl
+                     << BULLET_SPEED << endl
+                     << PLAYER_HEALTH << endl
+                     << SLOW_HEALTH << endl
+                     << MEDIUM_HEALTH << endl
+                     << FAST_HEALTH << endl
+                     << PLAYER_SPECIALS << endl
+                     << DROP_RATE << endl
+                     << ENEMY_SPAWNRATE << endl;
+    }
+    settingsFile.close();
+
 }
 
 void loadSettings(string fileName){
@@ -58,6 +82,8 @@ void loadSettings(string fileName){
     MEDIUM_HIT_CIRCLE.setRadiusOuter(MEDIUM_RADIUS + HIT_CIRCLE_SIZE);
     FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
     FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
+
+    settingsFile.close();
 }
 
 #endif //CIRCLE_MANIA_GRAPHICSDIFFICULTYSETTINGS_H
