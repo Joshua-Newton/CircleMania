@@ -26,6 +26,38 @@ void displaySettings() {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mainMenuMessage[i]);
     }
 
+    menuButtonsVector[9]->draw();
+    string defaultMessage = "Default Settings";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(defaultSettingsButton.get_x() + 25, defaultSettingsButton.get_y() + 45);
+    for (int i = 0; i < defaultMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, defaultMessage[i]);
+    }
+
+    menuButtonsVector[10]->draw();
+    string easyMessage = "Easy Difficulty";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(easySettingsButton.get_x() + 25, easySettingsButton.get_y() + 45);
+    for (int i = 0; i < easyMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, easyMessage[i]);
+    }
+
+    menuButtonsVector[11]->draw();
+    string normalMessage = "Normal Difficulty";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(normalSettingsButton.get_x() + 20, normalSettingsButton.get_y() + 45);
+    for (int i = 0; i < normalMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, normalMessage[i]);
+    }
+
+    menuButtonsVector[12]->draw();
+    string hardMessage = "Hard Difficulty";
+    glColor3f(1, 1, 1);
+    glRasterPos2i(hardSettingsButton.get_x() + 25, hardSettingsButton.get_y() + 45);
+    for (int i = 0; i < hardMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, hardMessage[i]);
+    }
+
     string number;
     string label;
     playerSizeDisplay.draw();

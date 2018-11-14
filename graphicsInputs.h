@@ -710,6 +710,7 @@ void mouse(int button, int state, int x, int y) {
 
     /** Interactions on settings screen **/
     if (screen == settings) {
+        // Go to the main menu
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && mainMenuButton.is_overlapping(x, y)) {
             screen = start;
             // Apply settings that are necessary
@@ -729,7 +730,22 @@ void mouse(int button, int state, int x, int y) {
             FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
             FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
         }
-
+        // Load the default settings
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && defaultSettingsButton.is_overlapping(x, y)){
+            loadSettings(DEFAULT_SETTINGS_FILE);
+        }
+        // Load the easy settings
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && easySettingsButton.is_overlapping(x, y)){
+            loadSettings(EASY_SETTINGS_FILE);
+        }
+        // Load the normal settings
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && normalSettingsButton.is_overlapping(x, y)){
+            loadSettings(NORMAL_SETTINGS_FILE);
+        }
+        // Load the hard settings
+        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && hardSettingsButton.is_overlapping(x, y)){
+            loadSettings(HARD_SETTINGS_FILE);
+        }
         // Player Size
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && playerSizePlusTen.is_overlapping(x, y)) {
             PLAYER_RADIUS += 10;

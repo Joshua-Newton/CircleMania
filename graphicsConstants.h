@@ -190,17 +190,23 @@ enum screenType {start, game, endGame, pauseGame, settings};
 screenType screen;
 
 // Rectangles used for background and buttons
-Rectangle_Shape startBackground;
+Rectangle_Shape startBackground(width + 50, height + 50, BACKGROUND_COLOR, -25,-25);
+// Menu Buttons
+Rectangle_Shape startButton(BUTTON_WIDTH, BUTTON_HEIGHT, START_BUTTON_COLOR, BUTTON_X_POSITION, 300);
+Rectangle_Shape loadButton(BUTTON_WIDTH, BUTTON_HEIGHT, LOAD_BUTTON_COLOR, BUTTON_X_POSITION, 400);
+Rectangle_Shape resumeButton(BUTTON_WIDTH, BUTTON_HEIGHT, RESUME_BUTTON_COLOR, BUTTON_X_POSITION, 200);
+Rectangle_Shape saveButton(BUTTON_WIDTH, BUTTON_HEIGHT, SAVE_BUTTON_COLOR, BUTTON_X_POSITION, 500);
+Rectangle_Shape exitButton(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, BUTTON_X_POSITION, 500);
+Rectangle_Shape exitButtonPause(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, BUTTON_X_POSITION, 600);
+Rectangle_Shape restartGameButton(BUTTON_WIDTH, BUTTON_HEIGHT, RESTART_GAME_BUTTON_COLOR, BUTTON_X_POSITION, 300);
+Rectangle_Shape settingsButton(BUTTON_WIDTH, BUTTON_HEIGHT, SETTINGS_BUTTON_COLOR, BUTTON_X_POSITION, 600);
+Rectangle_Shape mainMenuButton(BUTTON_WIDTH, BUTTON_HEIGHT, MAIN_MENU_BUTTON_COLOR, 25, 25);
+// Settings buttons
+Rectangle_Shape defaultSettingsButton(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, mainMenuButton.get_x() + BUTTON_WIDTH + 25, mainMenuButton.get_y() );
+Rectangle_Shape easySettingsButton(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, defaultSettingsButton.get_x() + BUTTON_WIDTH + 25, defaultSettingsButton.get_y() );
+Rectangle_Shape normalSettingsButton(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, easySettingsButton.get_x() + BUTTON_WIDTH + 25, easySettingsButton.get_y() );
+Rectangle_Shape hardSettingsButton(BUTTON_WIDTH, BUTTON_HEIGHT, EXIT_BUTTON_COLOR, normalSettingsButton.get_x() + BUTTON_WIDTH + 25, normalSettingsButton.get_y() );
 
-Rectangle_Shape startButton;
-Rectangle_Shape loadButton;
-Rectangle_Shape resumeButton;
-Rectangle_Shape saveButton;
-Rectangle_Shape exitButton;
-Rectangle_Shape exitButtonPause;
-Rectangle_Shape restartGameButton;
-Rectangle_Shape settingsButton;
-Rectangle_Shape mainMenuButton;
 vector<unique_ptr<Rectangle_Shape>> menuButtonsVector;
 
 // Rectangles used for settings display

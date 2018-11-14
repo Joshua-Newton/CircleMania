@@ -18,50 +18,6 @@ void init() {
 /** HARD CODE BELOW FOR TESTING **/
 
 /** HARD CODE ABOVE FOR TESTING **/
-    // Set up the start screen
-    startBackground.set_dimensions(width + 50, height + 50);
-    startBackground.set_fill(BACKGROUND_COLOR);
-    startBackground.set_position(-25, -25);
-
-    // Set up all buttons, creating their dimensions, colors, and positions
-
-    // Buttons
-
-    startButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    startButton.set_fill(START_BUTTON_COLOR);
-    startButton.set_position(BUTTON_X_POSITION, 300);
-
-    resumeButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    resumeButton.set_fill(RESUME_BUTTON_COLOR);
-    resumeButton.set_position(BUTTON_X_POSITION, 200);
-
-    restartGameButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    restartGameButton.set_fill(RESTART_GAME_BUTTON_COLOR);
-    restartGameButton.set_position(BUTTON_X_POSITION, 300);
-
-    loadButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    loadButton.set_fill(LOAD_BUTTON_COLOR);
-    loadButton.set_position(BUTTON_X_POSITION, 400);
-
-    saveButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    saveButton.set_fill(SAVE_BUTTON_COLOR);
-    saveButton.set_position(BUTTON_X_POSITION, 500);
-
-    exitButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    exitButton.set_fill(EXIT_BUTTON_COLOR);
-    exitButton.set_position(BUTTON_X_POSITION, 500);
-
-    exitButtonPause.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    exitButtonPause.set_fill(EXIT_BUTTON_COLOR);
-    exitButtonPause.set_position(BUTTON_X_POSITION, 600);
-
-    settingsButton.set_dimensions(BUTTON_WIDTH, BUTTON_HEIGHT);
-    settingsButton.set_fill(SETTINGS_BUTTON_COLOR);
-    settingsButton.set_position(BUTTON_X_POSITION, 600);
-
-    mainMenuButton.set_dimensions(BUTTON_WIDTH,BUTTON_HEIGHT);
-    mainMenuButton.set_fill(MAIN_MENU_BUTTON_COLOR);
-    mainMenuButton.set_position(25,25);
 
     // Put all the menu button in a vector
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(startButton));
@@ -73,6 +29,10 @@ void init() {
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(restartGameButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(settingsButton));
     menuButtonsVector.push_back(make_unique<Rectangle_Shape>(mainMenuButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(defaultSettingsButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(easySettingsButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(normalSettingsButton));
+    menuButtonsVector.push_back(make_unique<Rectangle_Shape>(hardSettingsButton));
 
     // Put all the settings displays in a vector
     settingsDisplaysVector.push_back(make_unique<Rectangle_Shape>(playerSizeDisplay));
