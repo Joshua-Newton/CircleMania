@@ -25,14 +25,14 @@ void displaySettings() {
     for (int i = 0; i < mainMenuMessage.length(); ++i) {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, mainMenuMessage[i]);
     }
-
-    menuButtonsVector[9]->draw();
-    string defaultMessage = "Default Settings";
-    glColor3f(1, 1, 1);
-    glRasterPos2i(defaultSettingsButton.get_x() + 25, defaultSettingsButton.get_y() + 45);
-    for (int i = 0; i < defaultMessage.length(); ++i) {
-        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, defaultMessage[i]);
-    }
+// TODO: Uncomment this when default settings is ready
+//    menuButtonsVector[9]->draw();
+//    string defaultMessage = "Default Settings";
+//    glColor3f(1, 1, 1);
+//    glRasterPos2i(defaultSettingsButton.get_x() + 25, defaultSettingsButton.get_y() + 45);
+//    for (int i = 0; i < defaultMessage.length(); ++i) {
+//        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, defaultMessage[i]);
+//    }
 
     menuButtonsVector[10]->draw();
     string easyMessage = "Easy Difficulty";

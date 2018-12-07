@@ -730,10 +730,11 @@ void mouse(int button, int state, int x, int y) {
             FAST_HIT_CIRCLE.setRadiusInner(FAST_RADIUS);
             FAST_HIT_CIRCLE.setRadiusOuter(FAST_RADIUS + HIT_CIRCLE_SIZE);
         }
-        // Load the default settings
-        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && defaultSettingsButton.is_overlapping(x, y)){
-            loadSettings(DEFAULT_SETTINGS_FILE);
-        }
+        // TODO: Uncomment this when default settings is ready
+//        // Load the default settings
+//        if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && defaultSettingsButton.is_overlapping(x, y)){
+//            loadSettings(DEFAULT_SETTINGS_FILE);
+//        }
         // Load the easy settings
         if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && easySettingsButton.is_overlapping(x, y)){
             loadSettings(EASY_SETTINGS_FILE);

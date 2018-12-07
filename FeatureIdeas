@@ -13,11 +13,10 @@ Ideas for future game features:
     g. Magnet (Slowly draw nearby pickups towards player)
 
 3. Difficulty Settings
-    a. Easy
-    b. Normal
-    c. Hard
-    d. Legendary
-    e. Custom
+    a. Easy         complete
+    b. Normal       complete
+    c. Hard         complete
+    d. Custom       nearly complete
        Allow these to be edited:
         I. Sizes                                complete
         II. Speeds                              complete
@@ -26,7 +25,7 @@ Ideas for future game features:
         V. Drop rates                           complete
         VI. Which pickups are available
         VII. Whether the HUD appears (showing health, score, etc.)
-        VIII. Default Settings button
+        VIII. Default Settings button           complete
 
 4. New Enemies
     a. Rainbow (Guaranteed pickup drop)
