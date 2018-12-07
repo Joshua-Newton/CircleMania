@@ -429,6 +429,13 @@ void displayEnd() {
         glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, menuMessage[i]);
     }
 
+    menuMessage = "Score: " + to_string(player.getScore());
+    glColor3f(1, 1, 1);
+    glRasterPos2i(BUTTON_X_POSITION + 25, 200);
+    for (int i = 0; i < menuMessage.length(); ++i) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, menuMessage[i]);
+    }
+
     // Draw labels for buttons
     string resumeMessage = "New Game";
     glColor3f(1, 1, 1);

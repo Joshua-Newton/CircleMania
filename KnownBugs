@@ -9,3 +9,4 @@ Known bugs in the game:
 3.  Hover over buttons activates when mouse is not over rectangles directly after changing screens. This fixes as soon
     as you move the mouse
 
+4.  Nuke circles do not load from save files
