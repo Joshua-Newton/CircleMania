@@ -13,7 +13,7 @@
 #include <fstream>
 
 void saving(const Player &players, const vector<unique_ptr<Enemy>> &enemies, const vector<Bullet> &bullets,
-            const vector<unique_ptr<Pickup>> &pickups, string fileName) {
+            const vector<unique_ptr<Pickup>> &pickups, const vector<HollowCircle> &nukes, string fileName) {
 
     // Saving
 
@@ -42,7 +42,7 @@ void saving(const Player &players, const vector<unique_ptr<Enemy>> &enemies, con
         gameObjects << enemies.size() << endl;
         gameObjects << bullets.size() << endl;
         gameObjects << pickups.size() << endl;
-
+        gameObjects << nukes.size() << endl;
         // Save the player's stats
         gameObjects << players.getHealth() << endl
                     << players.getSpeed() << endl
@@ -99,13 +99,25 @@ void saving(const Player &players, const vector<unique_ptr<Enemy>> &enemies, con
             pickups[i]->save(gameObjects);
         }
 
+        // TODO: for every nuke, save their stats
+        for (int i = 0; i < nukes.size(); ++i){
+            gameObjects << nukes[i].getRadiusInner() << endl
+                        << nukes[i].getRadiusOuter() << endl
+                        << nukes[i].get_fill().red << endl
+                        << nukes[i].get_fill().green << endl
+                        << nukes[i].get_fill().blue << endl
+                        << nukes[i].get_x() << endl
+                        << nukes[i].get_y() << endl;
+
+        }
+
     }
 
     gameObjects.close();
 }
 
 void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet> &bullets,
-             vector<unique_ptr<Pickup>> &pickups, string fileName) {
+             vector<unique_ptr<Pickup>> &pickups, vector<HollowCircle> &nukes, string fileName) {
 
     ifstream gameObjects(fileName); // Open file
 
@@ -130,8 +142,9 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
     int numEnemies;
     int numBullets;
     int numPickups;
+    int numNukes;
     // Load the sizes of vectors
-    gameObjects >> numEnemies >> numBullets >> numPickups;
+    gameObjects >> numEnemies >> numBullets >> numPickups >> numNukes;
     // Load the player
     // for the player.....
     int health;
@@ -235,6 +248,15 @@ void loading(Player &players, vector<unique_ptr<Enemy>> &enemies, vector<Bullet>
             pickups.push_back(make_unique<Nuke>(Nuke((Circle(radius, {r,g,b})), pickupString, lifetime, x, y)));
         }
 
+    }
+
+    // TODO: Load the nukes
+    for (int i = 0; i < numNukes; ++i){
+        double radiusInner, radiusOuter;
+        double r, g, b;
+        int x, y;
+        gameObjects >> radiusInner >> radiusOuter >> r >> g >> b >> x >> y;
+        nukes.push_back(HollowCircle(radiusInner, radiusOuter, {r,g,b}, x, y));
     }
 
     gameObjects.close();

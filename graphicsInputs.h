@@ -657,7 +657,9 @@ void mouse(int button, int state, int x, int y) {
             if (saveFile) {
                 enemies.clear();
                 bulletsVector.clear();
-                loading(player, enemies, bulletsVector, pickups, SAVE_FILE);
+                pickups.clear();
+                nukes.clear();
+                loading(player, enemies, bulletsVector, pickups, nukes,SAVE_FILE);
                 screen = game;
             }
         }
@@ -678,11 +680,13 @@ void mouse(int button, int state, int x, int y) {
             screen = game;
         }
         else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && saveButton.is_overlapping(x, y)) {
-            saving(player, enemies, bulletsVector, pickups, SAVE_FILE);
+            saving(player, enemies, bulletsVector, pickups, nukes, SAVE_FILE);
         } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && loadButton.is_overlapping(x, y)) {
             enemies.clear();
             bulletsVector.clear();
-            loading(player, enemies, bulletsVector, pickups, SAVE_FILE);
+            pickups.clear();
+            nukes.clear();
+            loading(player, enemies, bulletsVector, pickups, nukes, SAVE_FILE);
             screen = game;
         } else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && exitButtonPause.is_overlapping(x, y)) {
             glutDestroyWindow(wd);
@@ -1223,7 +1227,9 @@ void mouse(int button, int state, int x, int y) {
         else if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && loadButton.is_overlapping(x, y)) {
             enemies.clear();
             bulletsVector.clear();
-            loading(player, enemies, bulletsVector, pickups, SAVE_FILE);
+            nukes.clear();
+            pickups.clear();
+            loading(player, enemies, bulletsVector, pickups, nukes, SAVE_FILE);
             screen = game;
         }
             //exit game option exits game and closes window

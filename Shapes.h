@@ -175,7 +175,6 @@ public:
     bool is_overlapping(Circle circle) const;
     bool is_overlapping(Rectangle_Shape rectangle) const;
     bool is_overlapping(HollowCircle hollowCircle) const;
-
     void draw() const override;
 private:
     double radiusInner;
