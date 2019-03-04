@@ -28,7 +28,6 @@ void timer(int extra) {
             differenceY /= hypotenuse;
             int incrementX = int(differenceX * enemies[i]->getSpeed());
             int incrementY = int(differenceY * enemies[i]->getSpeed());
-
             // Move the enemy
             enemies[i]->move(incrementX, incrementY);
         }
@@ -52,7 +51,7 @@ void timer(int extra) {
     }
 
     glutPostRedisplay();
-    glutTimerFunc(0, timer, 0);
+    glutTimerFunc(20, timer, 0);
 }
 
 // Timer to make the enemies spawn

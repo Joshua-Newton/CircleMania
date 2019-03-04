@@ -31,6 +31,9 @@ Pickup::Pickup(const Pickup &pickup){
     setType(pickup.getType());
 }
 
+// Destructor
+Pickup::~Pickup(){
+}
 
 // Getters
 Circle Pickup::getCircle() const{

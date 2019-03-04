@@ -40,6 +40,11 @@ public:
     Pickup(Circle circle, string pickupString, int pickupLifeTime);
     Pickup(const Pickup &pickup);
 
+    /*
+    * Destructor
+    */
+    virtual ~Pickup();
+
     // Getters
     Circle getCircle() const;
     string getString() const;

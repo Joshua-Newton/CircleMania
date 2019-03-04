@@ -53,7 +53,7 @@ public:
     /*
      * Destructor
      */
-    ~Enemy();
+    virtual ~Enemy();
 
     void draw();
     void drawHitCircle();
